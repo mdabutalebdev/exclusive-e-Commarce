@@ -17,7 +17,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="w-full shadow-sm">
+    <header className="w-full">
       {/* Top Bar */}
       <div className="bg-black text-white text-sm py-2">
         <div className="container mx-auto px-4 md:px-24 flex justify-between">

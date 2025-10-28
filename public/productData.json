@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Apple MacBook Air M2",
+    "category": "laptop",
+    "image": "/images/mac.webp",
+    "discountPercent": 15,
+    "mainPrice": 1299,
+    "discountPrice": 1104,
+    "rating": 4.8,
+    "totalRatings": 92,
+    "inStock": true
+  },
+  {
+    "id": 2,
+    "name": "Pc Power PCGMG17",
+    "category": "Mouse",
+    "image": "/images/mouse.webp",
+    "discountPercent": 20,
+    "mainPrice": 1199,
+    "discountPrice": 959,
+    "rating": 4.7,
+    "totalRatings": 85,
+    "inStock": true
+  },
+  {
+    "id": 3,
+    "name": "DJI Mini 4 Pro Drone",
+    "category": "Drone",
+    "image": "/images/drone.webp",
+    "discountPercent": 10,
+    "mainPrice": 999,
+    "discountPrice": 899,
+    "rating": 4.6,
+    "totalRatings": 47,
+    "inStock": true
+  },
+  {
+    "id": 4,
+    "name": "Sony WH-1000XM5",
+    "category": "Headphone",
+    "image": "/images/headphone.webp",
+    "discountPercent": 25,
+    "mainPrice": 399,
+    "discountPrice": 299,
+    "rating": 4.8,
+    "totalRatings": 110,
+    "inStock": true
+  },
+  {
+    "id": 5,
+    "name": "Bose SoundLink Revolve+",
+    "category": "Headphone",
+    "image": "/images/headphon_two.webp",
+    "discountPercent": 30,
+    "mainPrice": 299,
+    "discountPrice": 209,
+    "rating": 4.7,
+    "totalRatings": 78,
+    "inStock": true
+  },
+  {
+    "id": 6,
+    "name": "Canon EOS R6 Camera",
+    "category": "Camera",
+    "image": "/images/camera.webp",
+    "discountPercent": 12,
+    "mainPrice": 2499,
+    "discountPrice": 2199,
+    "rating": 4.8,
+    "totalRatings": 64,
+    "inStock": true
+  },
+  {
+    "id": 7,
+    "name": "Gigabyte AORUS CO49DQ 49 Inch 5K",
+    "category": "Monitor",
+    "image": "/images/monitor.webp",
+    "discountPercent": 18,
+    "mainPrice": 499,
+    "discountPrice": 409,
+    "rating": 4.6,
+    "totalRatings": 50,
+    "inStock": true
+  },
+  {
+    "id": 8,
+    "name": " NZXT H510 Elite Casing",
+    "category": "Casing",
+    "image": "/images/casing.webp",
+    "discountPercent": 40,
+    "mainPrice": 199,
+    "discountPrice": 119,
+    "rating": 4.9,
+    "totalRatings": 132,
+    "inStock": true
+  },
+  {
+    "id": 9,
+    "name": "JBL TUNE 110 Wired In-Ear Black",
+    "category": "Eairphone",
+    "image": "/images/eairphone.webp",
+    "discountPercent": 22,
+    "mainPrice": 1599,
+    "discountPrice": 1247,
+    "rating": 4.8,
+    "totalRatings": 98,
+    "inStock": true
+  },
+  {
+    "id": 10,
+    "name": "Pc Power Flare Combo RGB",
+    "category": "Keyboard",
+    "image": "/images/keyboard.webp",
+    "discountPercent": 28,
+    "mainPrice": 799,
+    "discountPrice": 575,
+    "rating": 4.7,
+    "totalRatings": 74,
+    "inStock": true
+  }
+]
