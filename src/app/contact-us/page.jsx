@@ -1,12 +1,12 @@
 import ContactSection from '@/components/ContactSection'
 import React from 'react'
 
-const ContactPage = () => {
+const page = () => {
   return (
     <div> 
-      <ContactSection/>
+        <ContactSection/>
     </div>
   )
 }
 
-export default ContactPage
+export default page

@@ -4,6 +4,7 @@ import { CiHeart, CiSearch } from "react-icons/ci";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { CiUser } from "react-icons/ci";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -23,9 +24,16 @@ const Navbar = () => {
         <div className="container mx-auto px-4 md:px-24 flex justify-between">
           <p>Free shipping on orders over $50</p>
           <div className="hidden md:flex gap-6">
-            <p>Track Order</p>
-            <p>About Us</p>
+           <Link href="/track-order">
+              <p>Track Order</p>
+           </Link>
+           
+           <Link href="/about-us">
+             <p>About Us</p>
+           </Link>
+           <Link href="/contact-us">
             <p>Contact Us</p>
+           </Link>
           </div>
         </div>
       </div>
@@ -65,6 +73,7 @@ const Navbar = () => {
             </div>
             <CiHeart className="text-2xl cursor-pointer" />
             <HiOutlineShoppingCart className="text-2xl cursor-pointer" />
+             <CiUser className="text-2xl cursor-pointer" />
           </div>
 
           {/* Mobile Menu Button */}
@@ -101,6 +110,8 @@ const Navbar = () => {
           />
           <CiHeart className="text-2xl cursor-pointer" />
           <HiOutlineShoppingCart className="text-2xl cursor-pointer" />
+          <CiUser className="text-2xl cursor-pointer" />
+
         </div>
 
         {/* Mobile Menu Links (slide from right) */}
