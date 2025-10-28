@@ -1,0 +1,11 @@
+[
+  { "id": 1, "name": "Casing", "icon": "FaMobileAlt" },
+  { "id": 2, "name": "laptop", "icon": "FaLaptop" },
+  { "id": 3, "name": "SmartWatch", "icon": "FaClock" },
+  { "id": 4, "name": "Camera", "icon": "FaCamera" },
+  { "id": 5, "name": "Headphone", "icon": "FaHeadphones" },
+  { "id": 6, "name": "Gaming", "icon": "FaGamepad" },
+  { "id": 7, "name": "Mouse", "icon": "FaGamepad" },
+  { "id": 8, "name": "Monitor", "icon": "FaGamepad" },
+  { "id": 9, "name": "Drone", "icon": "FaDrone" }
+]

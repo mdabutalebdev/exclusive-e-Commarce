@@ -23,7 +23,7 @@
     "totalRatings": 85,
     "inStock": true
   },
-  {
+  {   
     "id": 3,
     "name": "DJI Mini 4 Pro Drone",
     "category": "Drone",
@@ -118,5 +118,140 @@
     "rating": 4.7,
     "totalRatings": 74,
     "inStock": true
+  },
+  
+  {
+    "id": 11,
+    "name": "Apple iPhone 14 Pro",
+    "category": "Phones",
+    "image": "/images/iphone14.webp",
+    "discountPercent": 15,
+    "mainPrice": 1099,
+    "discountPrice": 934,
+    "rating": 4.9,
+    "totalRatings": 120,
+    "inStock": true
+  },
+  {
+    "id": 12,
+    "name": "Samsung Galaxy S23",
+    "category": "Phones",
+    "image": "/images/galaxy_s23.webp",
+    "discountPercent": 10,
+    "mainPrice": 999,
+    "discountPrice": 899,
+    "rating": 4.7,
+    "totalRatings": 85,
+    "inStock": true
+  },
+  {
+    "id": 13,
+    "name": "colmi-p71-blue-bluetooth-calling-smart-watch",
+    "category": "SmartWatch",
+    "image": "/images/colmi-p71-blue-bluetooth-calling-smart-watch-21726316018.webp",
+    "discountPercent": 12,
+    "mainPrice": 499,
+    "discountPrice": 439,
+    "rating": 4.8,
+    "totalRatings": 92,
+    "inStock": true
+  },
+  {
+    "id": 14,
+    "name": "colmi-p76-black-orange-bluetooth-calling-smart",
+    "category": "SmartWatch",
+    "image": "/images/colmi-p76-black-orange-bluetooth-calling-smart-11738985058.webp",
+    "discountPercent": 15,
+    "mainPrice": 399,
+    "discountPrice": 339,
+    "rating": 4.6,
+    "totalRatings": 78,
+    "inStock": true
+  },
+  {
+    "id": 15,
+    "name": "Sony Alpha a7 IV",
+    "category": "Camera",
+    "image": "/images/sony_alpha.webp",
+    "discountPercent": 18,
+    "mainPrice": 2499,
+    "discountPrice": 2049,
+    "rating": 4.9,
+    "totalRatings": 65,
+    "inStock": true
+  },
+  {
+    "id": 16,
+    "name": "DJI Mini 3 Pro",
+    "category": "Gaming",
+    "image": "/images/gaming_product.webp",
+    "discountPercent": 10,
+    "mainPrice": 899,
+    "discountPrice": 809,
+    "rating": 4.7,
+    "totalRatings": 50,
+    "inStock": true
+  },
+  {
+    "id": 17,
+    "name": "value-top-cr10-1236argb-120mm-3xfan-black",
+    "category": "Gaming",
+    "image": "/images/value-top-cr10-1236argb-120mm-3xfan-black-11739791370.webp",
+    "discountPercent": 20,
+    "mainPrice": 149,
+    "discountPrice": 119,
+    "rating": 4.8,
+    "totalRatings": 80,
+    "inStock": true
+  },
+  {
+    "id": 18,
+    "name": "redragon-mira-h868-rgb-bluetooth-black",
+    "category": "Headphone",
+    "image": "/images/redragon-mira-h868-rgb-bluetooth-black-gaming-11716121420.webp",
+    "discountPercent": 25,
+    "mainPrice": 349,
+    "discountPrice": 261,
+    "rating": 4.7,
+    "totalRatings": 95,
+    "inStock": true
+  },  
+  {
+    "id": 19,
+    "name": "DJI Osmo Nano 35MP 4K (64GB)",
+    "category": "Camera",
+    "image": "/images/go_pro.webp",
+    "discountPercent": 12,
+    "mainPrice": 3899,
+    "discountPrice": 3431,
+    "rating": 4.9,
+    "totalRatings": 42,
+    "inStock": true
+  },
+  {
+    "id": 20,
+    "name": "fantech-vigil-mp256-black-gaming-mouse",
+    "category": "Gaming",
+    "image": "/images/fantech-vigil-mp256-black-gaming-mouse-11703140442.webp",
+    "discountPercent": 22,
+    "mainPrice": 199,
+    "discountPrice": 155,
+    "rating": 4.8,
+    "totalRatings": 70,
+    "inStock": true
+  },
+  {
+    "id": 21,
+    "name": "a4tech-bloody-ws98-tri-mode-rgb-hot-swap-blms-11751281635",
+    "category": "Gaming",
+    "image": "/images/a4tech-bloody-ws98-tri-mode-rgb-hot-swap-blms-11751281635.webp",
+    "discountPercent": 22,
+    "mainPrice": 199,
+    "discountPrice": 155,
+    "rating": 4.8,
+    "totalRatings": 70,
+    "inStock": true
   }
+
+
 ]

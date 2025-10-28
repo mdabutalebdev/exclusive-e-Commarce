@@ -1,14 +1,19 @@
 "use client";
 import Link from "next/link";
-import { CiHeart, CiSearch } from "react-icons/ci";
+import { CiHeart, CiSearch, CiUser } from "react-icons/ci";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { CiUser } from "react-icons/ci";
+import { useState, useRef, useEffect } from "react";
+import { MdOutlineBookmarkBorder } from "react-icons/md";
+import { CiLogout } from "react-icons/ci";
+import { TbLogout2 } from "react-icons/tb";
+import Button from "./Button";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const userMenuRef = useRef(null);
 
   const links = [
     { name: "Home", href: "/" },
@@ -17,6 +22,17 @@ const Navbar = () => {
     { name: "Contact", href: "/contact" },
   ];
 
+  // Click outside close handler
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target)) {
+        setUserMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <header className="w-full">
       {/* Top Bar */}
@@ -24,22 +40,21 @@ const Navbar = () => {
         <div className="container mx-auto px-4 md:px-24 flex justify-between">
           <p>Free shipping on orders over $50</p>
           <div className="hidden md:flex gap-6">
-           <Link href="/track-order">
+            <Link href="/track-order">
               <p>Track Order</p>
-           </Link>
-           
-           <Link href="/about-us">
-             <p>About Us</p>
-           </Link>
-           <Link href="/contact-us">
-            <p>Contact Us</p>
-           </Link>
+            </Link>
+            <Link href="/about-us">
+              <p>About Us</p>
+            </Link>
+            <Link href="/contact-us">
+              <p>Contact Us</p>
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Main Navbar */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-white border-b border-gray-200 relative">
         <div className="container mx-auto px-4 md:px-24 flex items-center justify-between py-3">
           {/* Logo */}
           <Link href="/" className="text-3xl font-bold text-black font-latin">
@@ -62,7 +77,10 @@ const Navbar = () => {
           </nav>
 
           {/* Desktop Icons */}
-          <div className="hidden md:flex items-center gap-3">
+          <div
+            className="hidden md:flex items-center gap-3 relative"
+            ref={userMenuRef}
+          >
             <div className="relative">
               <input
                 type="text"
@@ -73,7 +91,54 @@ const Navbar = () => {
             </div>
             <CiHeart className="text-2xl cursor-pointer" />
             <HiOutlineShoppingCart className="text-2xl cursor-pointer" />
-             <CiUser className="text-2xl cursor-pointer" />
+           
+            {/* User Icon */}
+            <div className="relative">
+              <CiUser
+                className="text-2xl cursor-pointer"
+                onClick={() => setUserMenuOpen(!userMenuOpen)}
+              />
+
+              {/* Dropdown Popup */}
+              {userMenuOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-md z-50">
+                  <div className="flex items-center gap-1 px-2">
+                    <CiUser />
+                    <Link
+                      href="/account"
+                      className="block  py-2 text-sm text-gray-700  "
+                      onClick={() => setUserMenuOpen(false)}
+                    >
+                      Manage My Account
+                    </Link>
+                  </div>
+                  <div className="flex items-center gap-1 px-2">
+                    <MdOutlineBookmarkBorder />
+
+                    <Link
+                      href="/orders"
+                      className="block  py-2 text-sm text-gray-700  "
+                      onClick={() => setUserMenuOpen(false)}
+                    >
+                      My Orders
+                    </Link>
+                  </div>
+                  <button
+                    className="w-full text-left pb-4 flex items-center gap-1 px-2  text-sm text-gray-700  "
+                    onClick={() => {
+                      setUserMenuOpen(false);
+                      alert("Logged out!");  
+                    }}
+                  >
+                    <TbLogout2 />
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
+              {/* <Button className="py-2 rounded-md">
+              SignUp
+             </Button> */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -101,7 +166,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Search + Icons (always visible) */}
+        {/* Mobile Search + Icons */}
         <div className="md:hidden bg-white border-t border-gray-200 px-4 py-3 flex items-center gap-3">
           <input
             type="text"
@@ -110,11 +175,42 @@ const Navbar = () => {
           />
           <CiHeart className="text-2xl cursor-pointer" />
           <HiOutlineShoppingCart className="text-2xl cursor-pointer" />
-          <CiUser className="text-2xl cursor-pointer" />
+          <CiUser
+            className="text-2xl cursor-pointer"
+            onClick={() => setUserMenuOpen(!userMenuOpen)}
+          />
 
+          {/* Mobile User Menu */}
+          {userMenuOpen && (
+            <div className="absolute right-4 top-[95px] w-44 bg-white border border-gray-200 rounded-md shadow-md z-50">
+              <Link
+                href="/account"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
+                onClick={() => setUserMenuOpen(false)}
+              >
+                Manage My Account
+              </Link>
+              <Link
+                href="/orders"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                onClick={() => setUserMenuOpen(false)}
+              >
+                My Orders
+              </Link>
+              <button
+                className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                onClick={() => {
+                  setUserMenuOpen(false);
+                  alert("Logged out!");
+                }}
+              >
+                Logout
+              </button>
+            </div>
+          )}
         </div>
 
-        {/* Mobile Menu Links (slide from right) */}
+        {/* Mobile Menu Links */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-200 px-4 py-3">
             <nav className="flex flex-col gap-2">

@@ -7,12 +7,11 @@ import Button from "./shared/Button";
 import Link from "next/link";
 
 const BestSeling = () => {
-  const products = useSelector((state) => state.product);
+  const products = useSelector((state) => state.products);
 
-  if (products.loading) {
-    return <div className="flex justify-center">Loading...</div>;
-  }
-
+if (products.loading) {
+  return <div className="flex justify-center">Loading...</div>;
+}
   return (
     <div className="py-20 bg-gray-50 ">
       <div className="container mx-auto px-24">
@@ -22,7 +21,7 @@ const BestSeling = () => {
         {/* Product Grid */}
         <div className="pt-10 pb-16 grid grid-cols-5 gap-6">
           {products.items && products.items.length > 0 ? (
-            products.items.map((product) => (
+            products.items.slice(0, 10).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))
           ) : (

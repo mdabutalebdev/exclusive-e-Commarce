@@ -14,14 +14,14 @@ import Button from "./shared/Button";
 import Link from "next/link";
 
 const BestSeling = () => {
-  const products = useSelector((state) => state.product);
+  const products = useSelector((state) => state.products);
 
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  if (products.loading) {
-    return <div className="flex justify-center">Loading...</div>;
-  }
+if (products.loading) {
+  return <div className="flex justify-center">Loading...</div>;
+}
 
   return (
     <div className="py-20 bg-gray-50 ">
