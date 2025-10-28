@@ -12,7 +12,7 @@ const NewArrible = () => {
 
       <div className="flex items-center justify-center gap-6">
         <div className="">
-          <div className="py-5 bg-gray-50">
+          <div className="py-5  ">
             <div className="relative  w-[750px] mx-auto h-[300px] md:h-[585px]">
               <Image
                 src="/images/event_img_one.jpg"
@@ -41,7 +41,7 @@ const NewArrible = () => {
         </div>
         <div className="">
           <div className="">
-            <div className="py-5 bg-gray-50">
+            <div className="py-5  ">
               <div className="relative  w-[570px] mx-auto h-[300px] md:h-[270px]">
                 <Image
                   src="/images/event_img_two.webp"
@@ -68,8 +68,8 @@ const NewArrible = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-6">
-            <div className="py-5 bg-gray-50">
+          <div className="flex items-center gap-8">
+            <div className="py-5  ">
               <div className="relative  w-[270px] mx-auto h-[200px] md:h-[270px]">
                 <Image
                   src="/images/event_img_three.webp"
@@ -93,7 +93,7 @@ const NewArrible = () => {
                 </div>
               </div>
             </div>
-            <div className="p bg-gray-50">
+            <div className="">
               <div className="relative  w-[270px] mx-auto h-[200px] md:h-[270px]">
                 <Image
                   src="/images/event_img_one.jpg"
