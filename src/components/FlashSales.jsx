@@ -23,7 +23,7 @@ if (products.loading) {
 }
 
   return (
-    <div className="py-20 bg-gray-50 ">
+    <div className="py-10 bg-gray-50 ">
       <div className="container mx-auto px-24  ">
         {/* Heading + Custom Arrows Flex */}
         <div className="flex justify-between items-center ">
@@ -51,7 +51,7 @@ if (products.loading) {
           </div>
         </div>
 
-        <div className="pb-16 pt-10">
+        <div className="pb-10 pt-10">
           {products.items && products.items.length > 0 ? (
           <Swiper
             modules={[Navigation, Autoplay]}
@@ -86,7 +86,7 @@ if (products.loading) {
         </div>
        <Link href="/product" className="">
         <div className="flex justify-center">
-          <Button className="cursor-pointer">
+          <Button className="cursor-pointer !py-3">
             View All Products
           </Button>
         </div>

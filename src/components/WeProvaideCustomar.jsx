@@ -13,10 +13,10 @@ const WeProvaideCustomar = () => {
                 alt="Delivery"
                 width={100}
                 height={100}
-                className="flex  justify-center"
+                className="flex h-20 w-20 justify-center"
               />
             </div>
-            <h2 className="text-3xl font-medium mt-4 mb-2">
+            <h2 className="text-2xl font-medium mt-4 mb-2">
               {" "}
               FREE AND FAST DELIVERY
             </h2>
@@ -31,10 +31,10 @@ const WeProvaideCustomar = () => {
                 alt="Support"
                 width={100}
                 height={100}
-                className="flex  justify-center"
+                className="flex h-20 w-20 justify-center"
               />
             </div>
-            <h2 className="text-3xl font-medium mt-4 mb-2">
+            <h2 className="text-2xl font-medium mt-4 mb-2">
               {" "}
             24/7 CUSTOMER SERVICE
             </h2>
@@ -49,10 +49,10 @@ const WeProvaideCustomar = () => {
                 alt="Money Bag"
                 width={100}
                 height={100}
-                className="flex  justify-center"
+                className="flex h-20 w-20 justify-center"
               />
             </div>
-            <h2 className="text-3xl font-medium mt-4 mb-2">
+            <h2 className="text-2xl font-medium mt-4 mb-2">
               {" "}
             MONEY BACK GUARANTEE
             </h2>

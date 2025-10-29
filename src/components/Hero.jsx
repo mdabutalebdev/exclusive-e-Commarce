@@ -27,7 +27,7 @@ const Hero = () => {
   ];
 
   return (
-    <div className="relative w-full min-h-[60vh] pt-2">
+    <div className="relative w-full min-h-[60vh]">
       <Swiper
         modules={[Autoplay, Pagination]}
         autoplay={{ delay: 3000, disableOnInteraction: false }}

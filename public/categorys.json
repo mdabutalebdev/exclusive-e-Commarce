@@ -7,5 +7,6 @@
   { "id": 6, "name": "Gaming", "icon": "FaGamepad" },
   { "id": 7, "name": "Mouse", "icon": "FaGamepad" },
   { "id": 8, "name": "Monitor", "icon": "FaGamepad" },
-  { "id": 9, "name": "Drone", "icon": "FaDrone" }
+  { "id": 9, "name": "Drone", "icon": "FaDrone" },
+  { "id": 10, "name": "Phones", "icon": "FaDrone" }
 ]

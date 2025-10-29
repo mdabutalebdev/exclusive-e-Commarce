@@ -17,8 +17,8 @@ const Navbar = () => {
 
   const links = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
     { name: "Product", href: "/product" },
+    { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -54,7 +54,7 @@ const Navbar = () => {
       </div>
 
       {/* Main Navbar */}
-      <div className="bg-white border-b border-gray-200 relative">
+      <div className="bg-white border-b border-gray-200 relative py-2">
         <div className="container mx-auto px-4 md:px-24 flex items-center justify-between py-3">
           {/* Logo */}
           <Link href="/" className="text-3xl font-bold text-black font-latin">

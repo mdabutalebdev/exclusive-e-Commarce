@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const NewArrible = () => {
   return (
-    <div>
+    <div className="pt-10">
       <div className="container mx-auto px-24">
         <Heading title={"Featured"} SectionHead={"New Arrival"} />
      
