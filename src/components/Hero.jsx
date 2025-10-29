@@ -45,7 +45,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-black/50"></div>
 
               {/* Content - left aligned */}
-              <div className="relative z-10 max-w-3xl text-left text-white">
+              <div className="relative z-10 max-w-2xl ml-14 text-left text-white">
                 <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-4 md:mb-6">
                   {slide.title.split("Style").length > 1 ? (
                     <>{slide.title.split("Style")[0]}</>

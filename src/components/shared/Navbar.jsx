@@ -7,13 +7,18 @@ import { useState, useRef, useEffect } from "react";
 import { MdOutlineBookmarkBorder } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
 import { TbLogout2 } from "react-icons/tb";
-import Button from "./Button";
+
+import { useSelector } from "react-redux";
+import { GoGitCompare } from "react-icons/go";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const userMenuRef = useRef(null);
+  const cartItem = useSelector((state) => state.addToCart?.items || []);
+  const favoriteItems = useSelector((state) => state.favorite.items);
+  const compareItems = useSelector((state) => state.compare.items);
 
   const links = [
     { name: "Home", href: "/" },
@@ -89,9 +94,31 @@ const Navbar = () => {
               />
               <CiSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-lg cursor-pointer text-gray-500" />
             </div>
-            <CiHeart className="text-2xl cursor-pointer" />
-            <HiOutlineShoppingCart className="text-2xl cursor-pointer" />
-           
+            {/* Compare */}
+            <div className="relative cursor-pointer">
+              <GoGitCompare className="text-2xl" />
+              {compareItems.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-blue-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+                  {compareItems.length}
+                </span>
+              )}
+            </div>
+            <div className="relative cursor-pointer">
+              <CiHeart className="text-2xl" />
+              {favoriteItems.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+                  {favoriteItems.length}
+                </span>
+              )}
+            </div>
+            <div className="flex flex-col justify-end -translate-y-2">
+              <span className="bg-red-500 flex items-center justify-center  ml-3  font-normal text-[12px] h-4 w-4 rounded-full  ">
+                {" "}
+                {cartItem.length}
+              </span>
+              <HiOutlineShoppingCart className="text-2xl leading-0 cursor-pointer" />
+            </div>
+
             {/* User Icon */}
             <div className="relative">
               <CiUser
@@ -127,7 +154,7 @@ const Navbar = () => {
                     className="w-full text-left pb-4 flex items-center gap-1 px-2  text-sm text-gray-700  "
                     onClick={() => {
                       setUserMenuOpen(false);
-                      alert("Logged out!");  
+                      alert("Logged out!");
                     }}
                   >
                     <TbLogout2 />
@@ -136,7 +163,7 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-              {/* <Button className="py-2 rounded-md">
+            {/* <Button className="py-2 rounded-md">
               SignUp
              </Button> */}
           </div>

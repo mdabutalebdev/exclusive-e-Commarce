@@ -32,7 +32,8 @@ if (products.loading) {
           {/* Custom Nav Buttons in flex with Heading */}
           <div className="flex items-center gap-4">
             <div className="">
-              <CountdownTimer targetDate={null} />
+             <CountdownTimer targetDate={new Date("2026-01-01T00:00:00")} />
+
             </div>
             <div className="flex items-center gap-2">
             <button

@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import CountdownTimer from "./shared/CountdownTimer";
+import Link from "next/link";
 
 const EventBanner = () => {
   return (
@@ -22,11 +23,13 @@ const EventBanner = () => {
             Enhance Your Music Experience
           </h1>
           
-            <CountdownTimer targetDate={null} />
+            <CountdownTimer targetDate={new Date("2026-01-01T00:00:00")} />
          
-          <button className="bg-[#00FF66] text-white font-medium px-6 py-3 rounded-lg mt-5  transition">
+          <Link href="/product">
+          <button className="bg-[#00FF66] text-white font-medium px-6 py-3 rounded-lg mt-5  transition cursor-pointer">
             Explore Now
           </button>
+          </Link>
         </div>
       </div>
     </div>

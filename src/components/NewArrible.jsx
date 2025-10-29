@@ -30,8 +30,8 @@ const NewArrible = () => {
                   </h3>
                   <p className="text-white">Awsome watch elplore This</p>
               
-                  <Link href="#">
-                  <button className="text-[14px] px-2 rounded-md bg-[#db4444] pb-1 text-white mt-2 cursor-pointer">
+                  <Link href="/product">
+                  <button className="text-[14px] px-2 py-1 rounded-md bg-[#db4444] pb-1 text-white mt-2 cursor-pointer">
                     Shop Now
                   </button>
                   </Link>
@@ -59,8 +59,8 @@ const NewArrible = () => {
                   </h3>
                   <p className="text-white">Awsome watch elplore This</p>
               
-                  <Link href="#">
-                  <button className="text-[14px] px-2 rounded-md bg-[#db4444] pb-1 text-white mt-2 cursor-pointer">
+                  <Link href="/product">
+                  <button className="text-[14px] px-2 py-1 rounded-md bg-[#db4444] pb-1 text-white mt-2 cursor-pointer">
                     Shop Now
                   </button>
                   </Link>
@@ -85,8 +85,8 @@ const NewArrible = () => {
                   </h3>
                   <p className="text-white">Awsome watch elplore This</p>
               
-                  <Link href="#">
-                  <button className="text-[14px] px-2 rounded-md bg-[#db4444] pb-1 text-white mt-2 cursor-pointer">
+                 <Link href="/product">
+                  <button className="text-[14px] px-2 py-1 rounded-md bg-[#db4444] pb-1 text-white mt-2 cursor-pointer">
                     Shop Now
                   </button>
                   </Link>
@@ -111,8 +111,8 @@ const NewArrible = () => {
                   </h3>
                   <p className="text-white">Awsome watch elplore This</p>
               
-                  <Link href="#">
-                  <button className="text-[14px] px-2 rounded-md bg-[#db4444] pb-1 text-white mt-2 cursor-pointer">
+                  <Link href="/product">
+                  <button className="text-[14px] px-2 py-1 rounded-md bg-[#db4444] pb-1 text-white mt-2 cursor-pointer">
                     Shop Now
                   </button>
                   </Link>

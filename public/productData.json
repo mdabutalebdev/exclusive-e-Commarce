@@ -90,7 +90,7 @@
     "image": "/images/casing.webp",
     "discountPercent": 40,
     "mainPrice": 199,
-    "discountPrice": 119,
+    "discountPrice": 1029,
     "rating": 4.9,
     "totalRatings": 132,
     "inStock": true
@@ -199,7 +199,7 @@
     "image": "/images/value-top-cr10-1236argb-120mm-3xfan-black-11739791370.webp",
     "discountPercent": 20,
     "mainPrice": 149,
-    "discountPrice": 119,
+    "discountPrice": 2350,
     "rating": 4.8,
     "totalRatings": 80,
     "inStock": true
@@ -301,7 +301,7 @@
     "totalRatings": 78,
     "inStock": true
   },
-  {
+  {  
     "id": 26,
     "name": "Canon EOS R6 Camera",
     "category": "Camera",
@@ -311,7 +311,7 @@
     "discountPrice": 2199,
     "rating": 4.8,
     "totalRatings": 64,
-    "inStock": true
+    "inStock": false
   },
   {
     "id": 27,
@@ -332,7 +332,7 @@
     "image": "/images/casing.webp",
     "discountPercent": 40,
     "mainPrice": 199,
-    "discountPrice": 119,
+    "discountPrice": 200,
     "rating": 4.9,
     "totalRatings": 132,
     "inStock": true
@@ -441,7 +441,7 @@
     "image": "/images/value-top-cr10-1236argb-120mm-3xfan-black-11739791370.webp",
     "discountPercent": 20,
     "mainPrice": 149,
-    "discountPrice": 119,
+    "discountPrice": 3000,
     "rating": 4.8,
     "totalRatings": 80,
     "inStock": true
