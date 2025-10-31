@@ -5,36 +5,43 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import QuantitySelector from "@/components/shared/QuantitySelector";
 import {
+  addToCart,
   clearCart,
   removeFromCart,
   updateQuantity,
 } from "@/redux/addToCartSlice";
 import { FaTruck, FaUndo } from "react-icons/fa";
+import toast from "react-hot-toast";
 export default function ProductDetailsPage() {
   const { id } = useParams();
   const products = useSelector((state) => state.products.items || []);
   const product = products.find((p) => p.id === Number(id));
   const dispatch = useDispatch();
   // **Check if product exists**
+
   if (!product) return <p className="text-center mt-10">Product not found!</p>;
 
   const fullStars = Math.floor(product.rating || 0);
   const hasHalfStar = (product.rating || 0) % 1 >= 0.5;
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+  //add to cart
+  const handelAddToCart = () => {
+    dispatch(addToCart(product));
+    toast.success("Added to Cart!");
+  };
 
   return (
     <div className="max-w-6xl mx-auto p-6">
       <div className="bg-white rounded-lg shadow-sm overflow-hidden mb-8">
         <div className="flex flex-col md:flex-row">
           {/* Product Image */}
-           
-            <img
+
+          <img
             src={product.image}
             alt={product.name}
-            className="w-full md:w-1/2  h-90 object-contain p-4 bg-amber-300 pt-20"
+            className="w-full md:w-1/2  h-90 object-contain p-4  pt-20"
           />
 
-         
           {/* Product Details */}
           <div className="flex-1 p-8">
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
@@ -79,7 +86,7 @@ export default function ProductDetailsPage() {
             </p>
 
             {/* Colors */}
-            {product.colors?.length > 0 && (
+            {/* {product.colors?.length > 0 && (
               <div className="mb-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-200">
                   Colours:
@@ -94,10 +101,10 @@ export default function ProductDetailsPage() {
                   ))}
                 </div>
               </div>
-            )}
+            )} */}
 
             {/* Sizes */}
-            {product.sizes?.length > 0 && (
+            {/* {product.sizes?.length > 0 && (
               <div className="mb-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-200">
                   Size:
@@ -117,7 +124,7 @@ export default function ProductDetailsPage() {
                   ))}
                 </div>
               </div>
-            )}
+            )} */}
 
             {/* Quantity */}
             <div className="flex items-center mb-6">
@@ -137,7 +144,10 @@ export default function ProductDetailsPage() {
               <div className="flex-2 bg-[#DB4444] text-white py-3 px-6 rounded-lg font-semibold text-lg text-center">
                 Buy Now
               </div>
-              <div className="flex-1 bg-gray-900 text-white py-3 px-6 rounded-lg font-semibold text-lg text-center">
+              <div
+                onClick={handelAddToCart}
+                className="flex-1 cursor-pointer bg-gray-900 text-white py-3 px-6 rounded-lg font-semibold text-lg text-center"
+              >
                 Add to Cart
               </div>
             </div>

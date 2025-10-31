@@ -40,13 +40,10 @@ const ProductCard = ({ product }) => {
     toast.success("Added to Cart!");
   };
 
-  const handleCompare = () => {
-    dispatch(addToCompare(product));
-    toast.success("Added to Compare!");
-  };
+ 
 
   return (
-    <Link href={`/product/${product.id}`}>
+    
     
     <div className="group bg-white w-[240px] h-[370px] border border-gray-200 relative mx-auto overflow-hidden">
       <div className="relative">
@@ -86,7 +83,7 @@ const ProductCard = ({ product }) => {
           </div>
         </div>
       </div>
-
+       <Link href={`/product/${product.id}`}>
       <div className="pl-4">
         <p className="text-gray-400 text-sm pt-2">{product.category}</p>
         <h3 className="text-base font-medium text-gray-600 line-clamp-1">
@@ -123,8 +120,8 @@ const ProductCard = ({ product }) => {
           </span>
         </div>
       </div>
-    </div>
     </Link>
+    </div>
   );
 };
 
