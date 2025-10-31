@@ -1,44 +1,53 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { FaStar, FaStarHalfAlt, FaRegStar, FaEye } from "react-icons/fa";
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { GoGitCompare } from "react-icons/go";
 import { CiHeart } from "react-icons/ci";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "@/redux/addToCartSlice";
-import toast from "react-hot-toast";
-import { addToFavorite } from "@/redux/favoriteSlice";
+import { addToFavorite, removeFromFavorite } from "@/redux/favoriteSlice";
 import { addToCompare } from "@/redux/compareSlice";
+import toast from "react-hot-toast";
+import { IoMdHeart } from "react-icons/io";
 
 const ProductCard = ({ product }) => {
+  const dispatch = useDispatch();
+  const favoriteItems = useSelector((state) => state.addToFavorite.items || []);
+  const isFavorite = favoriteItems.some((item) => item.id === product.id);
+
   const fullStars = Math.floor(product.rating);
   const hasHalfStar = product.rating % 1 >= 0.5;
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
-  const dispatch = useDispatch();
+  const handleFavorite = () => {
+    if (isFavorite) {
+      dispatch(removeFromFavorite(product.id));
+      toast.success("Removed from Favorite", {
+        style: { background: "#DB4444", color: "#fff" },
+      });
+    } else {
+      dispatch(addToFavorite(product));
+      toast.success("Added to Favorite", {
+        style: { background: "#008000", color: "#fff" },
+      });
+    }
+  };
 
   const handelAddToCart = () => {
     dispatch(addToCart(product));
-    toast.success(`Successfully added to cart!`);
-  };
-  const handleFavorite = () => {
-    dispatch(addToFavorite(product));
-    toast.success("Added to Favorite", {
-      style: { background: "#008000", color: "#fff" },
-    });
+    toast.success("Added to Cart!");
   };
 
   const handleCompare = () => {
     dispatch(addToCompare(product));
-    toast.success("Added to Compare", {
-      style: { background: "#008000", color: "#fff" },
-    });
+    toast.success("Added to Compare!");
   };
 
   return (
-    <div className="group bg-white w-[240px] h-[360px] border  border-gray-200 relative mx-auto overflow-hidden">
+    <div className="group bg-white w-[240px] h-[360px] border border-gray-200 relative mx-auto overflow-hidden">
       <div className="relative">
-        <span className="text-white bg-red-500 text-xs font-semibold px-2 py-1 rounded absolute top-4  left-2 m-auto z-20">
+        <span className="text-white bg-red-500 text-xs font-semibold px-2 py-1 rounded absolute top-4 left-2 z-20">
           -{product.discountPercent}%
         </span>
 
@@ -48,7 +57,12 @@ const ProductCard = ({ product }) => {
             className="bg-white p-2 shadow hover:bg-gray-100 transition"
             onClick={handleFavorite}
           >
-            <CiHeart className="text-gray-700" size={15} />
+            <IoMdHeart
+            
+
+              size={18}
+              className={isFavorite ? "text-red-500" : "text-gray-700"}
+            />
           </button>
 
           <button
@@ -98,14 +112,9 @@ const ProductCard = ({ product }) => {
           {[...Array(fullStars)].map((_, i) => (
             <FaStar key={`full-${i}`} className="text-yellow-400 text-[15px]" />
           ))}
-          {hasHalfStar && (
-            <FaStarHalfAlt className="text-yellow-400 text-[15px]" />
-          )}
+          {hasHalfStar && <FaStarHalfAlt className="text-yellow-400 text-[15px]" />}
           {[...Array(emptyStars)].map((_, i) => (
-            <FaRegStar
-              key={`empty-${i}`}
-              className="text-gray-300 text-[15px]"
-            />
+            <FaRegStar key={`empty-${i}`} className="text-gray-300 text-[15px]" />
           ))}
           <span className="text-gray-500 text-sm ml-1">
             ({product.totalRatings})

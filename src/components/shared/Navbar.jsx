@@ -6,12 +6,17 @@ import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { MdOutlineBookmarkBorder } from "react-icons/md";
 import { TbLogout2 } from "react-icons/tb";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const userMenuRef = useRef(null);
+
+  // Redux state
+  const cartItems = useSelector((state) => state.addToCart.items || []);
+  const favoriteItems = useSelector((state) => state.addToFavorite.items || []);
 
   const links = [
     { name: "Home", href: "/" },
@@ -20,7 +25,6 @@ const Navbar = () => {
     { name: "Contact", href: "/contact" },
   ];
 
-  // Click outside close handler
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (userMenuRef.current && !userMenuRef.current.contains(e.target)) {
@@ -69,10 +73,7 @@ const Navbar = () => {
           </nav>
 
           {/* Desktop Icons */}
-          <div
-            className="hidden md:flex items-center gap-3 relative"
-            ref={userMenuRef}
-          >
+          <div className="hidden md:flex items-center gap-3 relative" ref={userMenuRef}>
             <div className="relative">
               <input
                 type="text"
@@ -81,8 +82,32 @@ const Navbar = () => {
               />
               <CiSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-lg cursor-pointer text-gray-500" />
             </div>
-            <CiHeart className="text-2xl cursor-pointer" />
-            <HiOutlineShoppingCart className="text-2xl cursor-pointer" />
+
+            {/* Favorite Icon with count */}
+           <Link href="/favorite">
+           
+            <div className="relative cursor-pointer  ">
+              <CiHeart className="text-2xl" />
+              {favoriteItems.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                  {favoriteItems.length}
+                </span>
+              )}
+            </div>
+           </Link>
+
+            {/* Cart Icon with count */}
+           <Link href="/add-to-cart">
+           
+            <div className="relative cursor-pointer">
+              <HiOutlineShoppingCart className="text-2xl" />
+              {cartItems.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                  {cartItems.length}
+                </span>
+              )}
+            </div>
+           </Link>
 
             {/* User Icon */}
             <div className="relative">
@@ -90,8 +115,6 @@ const Navbar = () => {
                 className="text-2xl cursor-pointer"
                 onClick={() => setUserMenuOpen(!userMenuOpen)}
               />
-
-              {/* Dropdown Popup */}
               {userMenuOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-md z-50">
                   <div className="flex items-center gap-1 px-2 py-2">
@@ -153,70 +176,6 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
-
-        {/* Mobile Search + Icons */}
-        <div className="md:hidden bg-white border-t border-gray-200 px-4 py-3 flex items-center gap-3">
-          <input
-            type="text"
-            placeholder="Search product..."
-            className="flex-1 px-4 py-2 border border-gray-300 bg-gray-50 rounded-md focus:outline-none font-poppins"
-          />
-          <CiHeart className="text-2xl cursor-pointer" />
-          <HiOutlineShoppingCart className="text-2xl cursor-pointer" />
-          <CiUser
-            className="text-2xl cursor-pointer"
-            onClick={() => setUserMenuOpen(!userMenuOpen)}
-          />
-        </div>
-
-        {/* Mobile User Menu */}
-        {userMenuOpen && (
-          <div className="md:hidden absolute right-4 top-[95px] w-44 bg-white border border-gray-200 rounded-md shadow-md z-50">
-            <Link
-              href="/account"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              onClick={() => setUserMenuOpen(false)}
-            >
-              Manage My Account
-            </Link>
-            <Link
-              href="/orders"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              onClick={() => setUserMenuOpen(false)}
-            >
-              My Orders
-            </Link>
-            <button
-              className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              onClick={() => {
-                setUserMenuOpen(false);
-                alert("Logged out!");
-              }}
-            >
-              Logout
-            </button>
-          </div>
-        )}
-
-        {/* Mobile Menu Links */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200 px-4 py-3">
-            <nav className="flex flex-col gap-2">
-              {links.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`py-1 font-latin ${
-                    pathname === link.href ? "text-[#DB4444]" : "text-black"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        )}
       </div>
     </header>
   );
