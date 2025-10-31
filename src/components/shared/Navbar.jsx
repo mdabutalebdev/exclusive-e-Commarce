@@ -20,8 +20,8 @@ const Navbar = () => {
 
   const links = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
     { name: "Product", href: "/product" },
+    { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -73,7 +73,10 @@ const Navbar = () => {
           </nav>
 
           {/* Desktop Icons */}
-          <div className="hidden md:flex items-center gap-3 relative" ref={userMenuRef}>
+          <div
+            className="hidden md:flex items-center gap-3 relative"
+            ref={userMenuRef}
+          >
             <div className="relative">
               <input
                 type="text"
@@ -84,30 +87,25 @@ const Navbar = () => {
             </div>
 
             {/* Favorite Icon with count */}
-           <Link href="/favorite">
-           
-            <div className="relative cursor-pointer  ">
-              <CiHeart className="text-2xl" />
-              {favoriteItems.length > 0 && (
+            <Link href="/favorite">
+              <div className="relative cursor-pointer">
+                <CiHeart className="text-2xl" />
                 <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
                   {favoriteItems.length}
                 </span>
-              )}
-            </div>
-           </Link>
+              </div>
+            </Link>
 
             {/* Cart Icon with count */}
            <Link href="/add-to-cart">
-           
-            <div className="relative cursor-pointer">
-              <HiOutlineShoppingCart className="text-2xl" />
-              {cartItems.length > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                  {cartItems.length}
-                </span>
-              )}
-            </div>
-           </Link>
+  <div className="relative cursor-pointer">
+    <HiOutlineShoppingCart className="text-2xl" />
+    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+      {cartItems.length}
+    </span>
+  </div>
+</Link>
+
 
             {/* User Icon */}
             <div className="relative">

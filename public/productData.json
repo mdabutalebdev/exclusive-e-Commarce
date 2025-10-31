@@ -9,7 +9,8 @@
     "discountPrice": 1104,
     "rating": 4.8,
     "totalRatings": 92,
-    "inStock": true
+    "inStock": true,
+    "description": "Apple MacBook Air M2 with powerful M2 chip, lightweight design, and all-day battery life."
   },
   {
     "id": 2,
@@ -21,9 +22,10 @@
     "discountPrice": 959,
     "rating": 4.7,
     "totalRatings": 85,
-    "inStock": true
+    "inStock": true,
+    "description": "High-precision gaming mouse with ergonomic design and customizable buttons for smooth gameplay."
   },
-  {   
+  {
     "id": 3,
     "name": "DJI Mini 4 Pro Drone",
     "category": "Drone",
@@ -33,7 +35,8 @@
     "discountPrice": 899,
     "rating": 4.6,
     "totalRatings": 47,
-    "inStock": true
+    "inStock": true,
+    "description": "Compact and lightweight drone with 4K camera, ideal for aerial photography and travel."
   },
   {
     "id": 4,
@@ -45,7 +48,8 @@
     "discountPrice": 299,
     "rating": 4.8,
     "totalRatings": 110,
-    "inStock": true
+    "inStock": true,
+    "description": "Noise-cancelling over-ear headphones with exceptional sound quality and long battery life."
   },
   {
     "id": 5,
@@ -57,7 +61,8 @@
     "discountPrice": 209,
     "rating": 4.7,
     "totalRatings": 78,
-    "inStock": true
+    "inStock": true,
+    "description": "Portable Bluetooth speaker with 360-degree sound and deep bass performance."
   },
   {
     "id": 6,
@@ -69,7 +74,8 @@
     "discountPrice": 2199,
     "rating": 4.8,
     "totalRatings": 64,
-    "inStock": true
+    "inStock": true,
+    "description": "Professional mirrorless camera with fast autofocus, 20MP sensor, and 4K video recording."
   },
   {
     "id": 7,
@@ -81,11 +87,12 @@
     "discountPrice": 409,
     "rating": 4.6,
     "totalRatings": 50,
-    "inStock": true
+    "inStock": true,
+    "description": "Ultra-wide 49-inch 5K monitor with immersive display, ideal for gaming and productivity."
   },
   {
     "id": 8,
-    "name": " NZXT H510 Elite Casing",
+    "name": "NZXT H510 Elite Casing",
     "category": "Casing",
     "image": "/images/casing.webp",
     "discountPercent": 40,
@@ -93,7 +100,8 @@
     "discountPrice": 1029,
     "rating": 4.9,
     "totalRatings": 132,
-    "inStock": true
+    "inStock": true,
+    "description": "Premium PC casing with tempered glass, RGB lighting, and excellent airflow for gaming builds."
   },
   {
     "id": 9,
@@ -105,7 +113,8 @@
     "discountPrice": 1247,
     "rating": 4.8,
     "totalRatings": 98,
-    "inStock": true
+    "inStock": true,
+    "description": "Comfortable in-ear headphones with rich sound quality and tangle-free cable design."
   },
   {
     "id": 10,
@@ -117,9 +126,9 @@
     "discountPrice": 575,
     "rating": 4.7,
     "totalRatings": 74,
-    "inStock": true
+    "inStock": true,
+    "description": "RGB mechanical keyboard with customizable lighting and fast responsive keys."
   },
-  
   {
     "id": 11,
     "name": "xiaomi-pad-7-8gb-ram-128gb",
@@ -130,7 +139,8 @@
     "discountPrice": 934,
     "rating": 4.9,
     "totalRatings": 120,
-    "inStock": true
+    "inStock": true,
+    "description": "High-performance Xiaomi tablet with 8GB RAM, 128GB storage, and a crisp 11.2-inch display."
   },
   {
     "id": 12,
@@ -142,7 +152,8 @@
     "discountPrice": 899,
     "rating": 4.7,
     "totalRatings": 85,
-    "inStock": true
+    "inStock": true,
+    "description": "Compact Apple iPad Mini with Liquid Retina display, perfect for portability and performance."
   },
   {
     "id": 13,
@@ -154,7 +165,8 @@
     "discountPrice": 439,
     "rating": 4.8,
     "totalRatings": 92,
-    "inStock": true
+    "inStock": true,
+    "description": "Smartwatch with Bluetooth calling, health tracking, and a vibrant color display."
   },
   {
     "id": 14,
@@ -166,7 +178,8 @@
     "discountPrice": 339,
     "rating": 4.6,
     "totalRatings": 78,
-    "inStock": true
+    "inStock": true,
+    "description": "Durable smartwatch with Bluetooth calling, fitness tracking, and stylish black-orange design."
   },
   {
     "id": 15,
@@ -178,7 +191,8 @@
     "discountPrice": 2049,
     "rating": 4.9,
     "totalRatings": 65,
-    "inStock": true
+    "inStock": true,
+    "description": "Full-frame mirrorless camera with high-resolution sensor and advanced autofocus for professionals."
   },
   {
     "id": 16,
@@ -190,7 +204,8 @@
     "discountPrice": 809,
     "rating": 4.7,
     "totalRatings": 50,
-    "inStock": true
+    "inStock": true,
+    "description": "Compact and agile drone suitable for both recreational and semi-professional aerial photography."
   },
   {
     "id": 17,
@@ -202,7 +217,8 @@
     "discountPrice": 2350,
     "rating": 4.8,
     "totalRatings": 80,
-    "inStock": true
+    "inStock": false,
+    "description": "High-performance gaming fan with RGB lighting, perfect for cooling intense gaming rigs."
   },
   {
     "id": 18,
@@ -214,8 +230,9 @@
     "discountPrice": 261,
     "rating": 4.7,
     "totalRatings": 95,
-    "inStock": true
-  },  
+    "inStock": true,
+    "description": "Gaming headset with RGB lighting, Bluetooth connectivity, and immersive surround sound."
+  },
   {
     "id": 19,
     "name": "DJI Osmo Nano 35MP 4K (64GB)",
@@ -226,7 +243,8 @@
     "discountPrice": 3431,
     "rating": 4.9,
     "totalRatings": 42,
-    "inStock": true
+    "inStock": true,
+    "description": "Compact 4K action camera with 35MP sensor, ideal for adventure filming and photography."
   },
   {
     "id": 20,
@@ -238,8 +256,10 @@
     "discountPrice": 155,
     "rating": 4.8,
     "totalRatings": 70,
-    "inStock": true
+    "inStock": true,
+    "description": "Precision gaming mouse with ergonomic design, customizable DPI, and RGB lighting."
   },
+ 
   {
     "id": 21,
     "name": "a4tech-bloody-ws98-tri-mode-rgb-hot-swap-blms-11751281635",
@@ -250,9 +270,9 @@
     "discountPrice": 155,
     "rating": 4.8,
     "totalRatings": 70,
-    "inStock": true
+    "inStock": true,
+    "description": "Versatile gaming keyboard with tri-mode connectivity, hot-swap switches, and RGB lighting."
   },
-  
   {
     "id": 22,
     "name": "Pc Power PCGMG17",
@@ -263,7 +283,8 @@
     "discountPrice": 959,
     "rating": 4.7,
     "totalRatings": 85,
-    "inStock": true
+    "inStock": true,
+    "description": "Reliable and responsive gaming mouse with ergonomic design for extended use."
   },
   {
     "id": 23,
@@ -275,7 +296,8 @@
     "discountPrice": 899,
     "rating": 4.6,
     "totalRatings": 47,
-    "inStock": true
+    "inStock": true,
+    "description": "High-quality drone with 4K camera, lightweight design, and intelligent flight modes."
   },
   {
     "id": 24,
@@ -287,7 +309,8 @@
     "discountPrice": 299,
     "rating": 4.8,
     "totalRatings": 110,
-    "inStock": true
+    "inStock": true,
+    "description": "Premium noise-cancelling headphones with superior sound clarity and comfort."
   },
   {
     "id": 25,
@@ -299,9 +322,10 @@
     "discountPrice": 209,
     "rating": 4.7,
     "totalRatings": 78,
-    "inStock": true
+    "inStock": true,
+    "description": "Portable 360-degree Bluetooth speaker with rich audio and durable design."
   },
-  {  
+  {
     "id": 26,
     "name": "Canon EOS R6 Camera",
     "category": "Camera",
@@ -311,7 +335,8 @@
     "discountPrice": 2199,
     "rating": 4.8,
     "totalRatings": 64,
-    "inStock": false
+    "inStock": false,
+    "description": "Advanced mirrorless camera with fast autofocus, high-quality sensor, and 4K video."
   },
   {
     "id": 27,
@@ -323,11 +348,12 @@
     "discountPrice": 409,
     "rating": 4.6,
     "totalRatings": 50,
-    "inStock": true
+    "inStock": true,
+    "description": "Ultra-wide 49-inch monitor with 5K resolution, perfect for gaming and multitasking."
   },
   {
     "id": 28,
-    "name": " NZXT H510 Elite Casing",
+    "name": "NZXT H510 Elite Casing",
     "category": "Casing",
     "image": "/images/casing.webp",
     "discountPercent": 40,
@@ -335,7 +361,8 @@
     "discountPrice": 200,
     "rating": 4.9,
     "totalRatings": 132,
-    "inStock": true
+    "inStock": true,
+    "description": "Stylish and durable PC casing with tempered glass panels and optimized airflow."
   },
   {
     "id": 29,
@@ -347,7 +374,8 @@
     "discountPrice": 1247,
     "rating": 4.8,
     "totalRatings": 98,
-    "inStock": true
+    "inStock": true,
+    "description": "Compact wired in-ear headphones with excellent sound clarity and comfortable fit."
   },
   {
     "id": 30,
@@ -359,9 +387,9 @@
     "discountPrice": 575,
     "rating": 4.7,
     "totalRatings": 74,
-    "inStock": true
+    "inStock": true,
+    "description": "RGB gaming keyboard combo with responsive keys and durable build quality."
   },
-  
   {
     "id": 31,
     "name": "xiaomi-pad-7-8gb-ram-128gb",
@@ -372,7 +400,8 @@
     "discountPrice": 934,
     "rating": 4.9,
     "totalRatings": 120,
-    "inStock": true
+    "inStock": true,
+    "description": "High-performance Xiaomi tablet with 8GB RAM, 128GB storage, and vivid display."
   },
   {
     "id": 32,
@@ -384,7 +413,8 @@
     "discountPrice": 899,
     "rating": 4.7,
     "totalRatings": 85,
-    "inStock": true
+    "inStock": true,
+    "description": "Portable iPad Mini with Liquid Retina display, ideal for reading, work, and media."
   },
   {
     "id": 33,
@@ -396,7 +426,8 @@
     "discountPrice": 439,
     "rating": 4.8,
     "totalRatings": 92,
-    "inStock": true
+    "inStock": true,
+    "description": "Smartwatch with Bluetooth calling, fitness tracking, and vibrant color display."
   },
   {
     "id": 34,
@@ -408,7 +439,8 @@
     "discountPrice": 339,
     "rating": 4.6,
     "totalRatings": 78,
-    "inStock": true
+    "inStock": true,
+    "description": "Stylish and durable smartwatch with fitness tracking and Bluetooth calling features."
   },
   {
     "id": 35,
@@ -420,7 +452,8 @@
     "discountPrice": 2049,
     "rating": 4.9,
     "totalRatings": 65,
-    "inStock": true
+    "inStock": true,
+    "description": "Professional mirrorless camera with full-frame sensor and advanced photography features."
   },
   {
     "id": 36,
@@ -432,7 +465,8 @@
     "discountPrice": 809,
     "rating": 4.7,
     "totalRatings": 50,
-    "inStock": true
+    "inStock": true,
+    "description": "Compact drone designed for aerial photography and easy maneuvering in tight spaces."
   },
   {
     "id": 37,
@@ -444,7 +478,8 @@
     "discountPrice": 3000,
     "rating": 4.8,
     "totalRatings": 80,
-    "inStock": true
+    "inStock": true,
+    "description": "RGB gaming fan set with optimized airflow and durable build for PC cooling."
   },
   {
     "id": 38,
@@ -456,8 +491,9 @@
     "discountPrice": 261,
     "rating": 4.7,
     "totalRatings": 95,
-    "inStock": true
-  },  
+    "inStock": true,
+    "description": "Gaming headset with Bluetooth, RGB lighting, and high-quality surround sound."
+  },
   {
     "id": 39,
     "name": "DJI Osmo Nano 35MP 4K (64GB)",
@@ -468,7 +504,8 @@
     "discountPrice": 3431,
     "rating": 4.9,
     "totalRatings": 42,
-    "inStock": true
+    "inStock": true,
+    "description": "Action camera with 4K recording, 35MP sensor, and compact design for adventure filming."
   },
   {
     "id": 40,
@@ -480,20 +517,9 @@
     "discountPrice": 155,
     "rating": 4.8,
     "totalRatings": 70,
-    "inStock": true
-  },
-  {
-    "id": 41,
-    "name": "a4tech-bloody-ws98-tri-mode-rgb-hot-swap-blms-11751281635",
-    "category": "Gaming",
-    "image": "/images/a4tech-bloody-ws98-tri-mode-rgb-hot-swap-blms-11751281635.webp",
-    "discountPercent": 22,
-    "mainPrice": 199,
-    "discountPrice": 155,
-    "rating": 4.8,
-    "totalRatings": 70,
-    "inStock": true
+    "inStock": true,
+    "description": "Ergonomic gaming mouse with high precision, customizable DPI, and RGB lighting."
   }
-
+   
 
 ]

@@ -1,10 +1,17 @@
 "use client";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart, clearCart } from "@/redux/addToCartSlice";
+
 import { MdDelete } from "react-icons/md";
 import toast from "react-hot-toast";
+import QuantitySelector from "@/components/shared/QuantitySelector";
+import {
+  clearCart,
+  removeFromCart,
+  updateQuantity,
+} from "@/redux/addToCartSlice";
+ 
 
-const CartPage = () => {
+const CartPage = ({ product }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.addToCart.items);
 
@@ -55,7 +62,7 @@ const CartPage = () => {
       </div>
 
       {/* Cart Table */}
-      <div className="overflow-x-auto border rounded-lg shadow-sm">
+      <div className="overflow-x-auto border border-gray-300 rounded-lg shadow">
         <table className="min-w-full bg-white">
           <thead className="bg-gray-100 text-gray-700 uppercase text-sm font-semibold">
             <tr>
@@ -69,26 +76,32 @@ const CartPage = () => {
 
           <tbody>
             {cartItems.map((item) => (
-              <tr
-                key={item.id}
-                className="border-b hover:bg-gray-50 transition duration-150"
-              >
+              <tr key={item.id} className=" transition duration-150">
                 <td className="py-4 px-6 flex items-center gap-4">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-16 h-16 object-contain border rounded"
+                    className="w-16 h-16 object-contain border border-gray-300 rounded"
                   />
                   <span className="font-medium text-gray-800">{item.name}</span>
                 </td>
                 <td className="py-4 px-6 text-center text-gray-700">
                   ${item.discountPrice}
                 </td>
-                <td className="py-4 px-6 text-center text-gray-700">
-                  {item.quantity || 1}
+                <td className="text-center translate-x-12 text-gray-700">
+                  <QuantitySelector
+                    initialQty={item.quantity || 1}
+                    onChange={(qty) => {
+                      // Redux update
+                      dispatch(updateQuantity({ id: item.id, quantity: qty }));
+                    }}
+                  />
+
+                 
                 </td>
+
                 <td className="py-4 px-6 text-center font-semibold text-gray-800">
-                  ${(item.discountPrice * (item.quantity || 1)).toFixed(2)}
+                  ${(item.discountPrice * item.quantity).toFixed(2)}
                 </td>
                 <td className="py-4 px-6 text-center">
                   <button
@@ -106,7 +119,7 @@ const CartPage = () => {
 
       {/* Total Price Section */}
       <div className="mt-8 flex justify-end">
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md w-full sm:w-1/2 lg:w-1/3">
+        <div className="bg-gray-50 p-6 rounded-lg shadow-md w-full sm:w-1/2 lg:w-1/3">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">
             Order Summary
           </h2>
