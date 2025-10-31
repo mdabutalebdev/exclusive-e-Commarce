@@ -5,25 +5,18 @@ import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { MdOutlineBookmarkBorder } from "react-icons/md";
-import { CiLogout } from "react-icons/ci";
 import { TbLogout2 } from "react-icons/tb";
-
-import { useSelector } from "react-redux";
-import { GoGitCompare } from "react-icons/go";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const userMenuRef = useRef(null);
-  const cartItem = useSelector((state) => state.addToCart?.items || []);
-  const favoriteItems = useSelector((state) => state.favorite.items);
-  const compareItems = useSelector((state) => state.compare.items);
 
   const links = [
     { name: "Home", href: "/" },
-    { name: "Product", href: "/product" },
     { name: "About", href: "/about" },
+    { name: "Product", href: "/product" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -45,15 +38,9 @@ const Navbar = () => {
         <div className="container mx-auto px-4 md:px-24 flex justify-between">
           <p>Free shipping on orders over $50</p>
           <div className="hidden md:flex gap-6">
-            <Link href="/track-order">
-              <p>Track Order</p>
-            </Link>
-            <Link href="/about-us">
-              <p>About Us</p>
-            </Link>
-            <Link href="/contact-us">
-              <p>Contact Us</p>
-            </Link>
+            <Link href="/track-order">Track Order</Link>
+            <Link href="/about-us">About Us</Link>
+            <Link href="/contact-us">Contact Us</Link>
           </div>
         </div>
       </div>
@@ -94,30 +81,8 @@ const Navbar = () => {
               />
               <CiSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-lg cursor-pointer text-gray-500" />
             </div>
-            {/* Compare */}
-            <div className="relative cursor-pointer">
-              <GoGitCompare className="text-2xl" />
-              {compareItems.length > 0 && (
-                <span className="absolute -top-2 -right-2 bg-blue-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
-                  {compareItems.length}
-                </span>
-              )}
-            </div>
-            <div className="relative cursor-pointer">
-              <CiHeart className="text-2xl" />
-              {favoriteItems.length > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
-                  {favoriteItems.length}
-                </span>
-              )}
-            </div>
-            <div className="flex flex-col justify-end -translate-y-2">
-              <span className="bg-red-500 flex items-center justify-center  ml-3  font-normal text-[12px] h-4 w-4 rounded-full  ">
-                {" "}
-                {cartItem.length}
-              </span>
-              <HiOutlineShoppingCart className="text-2xl leading-0 cursor-pointer" />
-            </div>
+            <CiHeart className="text-2xl cursor-pointer" />
+            <HiOutlineShoppingCart className="text-2xl cursor-pointer" />
 
             {/* User Icon */}
             <div className="relative">
@@ -129,29 +94,28 @@ const Navbar = () => {
               {/* Dropdown Popup */}
               {userMenuOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-md z-50">
-                  <div className="flex items-center gap-1 px-2">
+                  <div className="flex items-center gap-1 px-2 py-2">
                     <CiUser />
                     <Link
                       href="/account"
-                      className="block  py-2 text-sm text-gray-700  "
+                      className="block text-sm text-gray-700"
                       onClick={() => setUserMenuOpen(false)}
                     >
                       Manage My Account
                     </Link>
                   </div>
-                  <div className="flex items-center gap-1 px-2">
+                  <div className="flex items-center gap-1 px-2 py-2">
                     <MdOutlineBookmarkBorder />
-
                     <Link
                       href="/orders"
-                      className="block  py-2 text-sm text-gray-700  "
+                      className="block text-sm text-gray-700"
                       onClick={() => setUserMenuOpen(false)}
                     >
                       My Orders
                     </Link>
                   </div>
                   <button
-                    className="w-full text-left pb-4 flex items-center gap-1 px-2  text-sm text-gray-700  "
+                    className="w-full text-left flex items-center gap-1 px-2 py-2 text-sm text-gray-700"
                     onClick={() => {
                       setUserMenuOpen(false);
                       alert("Logged out!");
@@ -163,9 +127,6 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            {/* <Button className="py-2 rounded-md">
-              SignUp
-             </Button> */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -206,36 +167,36 @@ const Navbar = () => {
             className="text-2xl cursor-pointer"
             onClick={() => setUserMenuOpen(!userMenuOpen)}
           />
-
-          {/* Mobile User Menu */}
-          {userMenuOpen && (
-            <div className="absolute right-4 top-[95px] w-44 bg-white border border-gray-200 rounded-md shadow-md z-50">
-              <Link
-                href="/account"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
-                onClick={() => setUserMenuOpen(false)}
-              >
-                Manage My Account
-              </Link>
-              <Link
-                href="/orders"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                onClick={() => setUserMenuOpen(false)}
-              >
-                My Orders
-              </Link>
-              <button
-                className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                onClick={() => {
-                  setUserMenuOpen(false);
-                  alert("Logged out!");
-                }}
-              >
-                Logout
-              </button>
-            </div>
-          )}
         </div>
+
+        {/* Mobile User Menu */}
+        {userMenuOpen && (
+          <div className="md:hidden absolute right-4 top-[95px] w-44 bg-white border border-gray-200 rounded-md shadow-md z-50">
+            <Link
+              href="/account"
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              onClick={() => setUserMenuOpen(false)}
+            >
+              Manage My Account
+            </Link>
+            <Link
+              href="/orders"
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              onClick={() => setUserMenuOpen(false)}
+            >
+              My Orders
+            </Link>
+            <button
+              className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              onClick={() => {
+                setUserMenuOpen(false);
+                alert("Logged out!");
+              }}
+            >
+              Logout
+            </button>
+          </div>
+        )}
 
         {/* Mobile Menu Links */}
         {mobileMenuOpen && (

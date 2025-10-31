@@ -1,3 +1,4 @@
+// redux/addToCompareSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -5,19 +6,18 @@ const initialState = {
 };
 
 const compareSlice = createSlice({
-  name: "compare",
+  name: "compare", // slice এর নাম compare
   initialState,
   reducers: {
     addToCompare: (state, action) => {
       const product = action.payload;
-      const existing = state.items.find((item) => item.id === product.id);
-      if (!existing) {
+      const exists = state.items.find((item) => item.id === product.id);
+      if (!exists) {
         state.items.push(product);
       }
     },
     removeFromCompare: (state, action) => {
-      const id = action.payload;
-      state.items = state.items.filter((item) => item.id !== id);
+      state.items = state.items.filter((item) => item.id !== action.payload);
     },
     clearCompare: (state) => {
       state.items = [];

@@ -1,17 +1,41 @@
-import { configureStore } from '@reduxjs/toolkit';
-import productReducer from './productSlice';
-import categoryReducer from './categorySlice';
-import addToCartReducer from './addToCartSlice';
-import favoriteReducer from "./favoriteSlice";
-import compareReducer from "./compareSlice";
+import { configureStore } from "@reduxjs/toolkit";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
+import productReducer from "./productSlice";
+import categoryReducer from "./categorySlice";
+import addToCartReducer from "./addToCartSlice";
+import addToCompareReducer from "./compareSlice"
+import addToFavoriteReducer from "./favoriteSlice"
+
+// persist configs
+const cartPersistConfig = { key: "cart", storage, whitelist: ["items"] };
+const comparePersistConfig = { key: "compare", storage, whitelist: ["items"] };
+const favoritePersistConfig = { key: "favorite", storage, whitelist: ["items"] };
 
 export const store = configureStore({
   reducer: {
     products: productReducer,
     categories: categoryReducer,
-    addToCart: addToCartReducer,
-    favorite: favoriteReducer,
-    compare: compareReducer,
+    addToCart: persistReducer(cartPersistConfig, addToCartReducer),
+    addToCompare: persistReducer(comparePersistConfig, addToCompareReducer),
+    addToFavorite: persistReducer(favoritePersistConfig, addToFavoriteReducer),
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
+
+export const persistor = persistStore(store);
