@@ -9,6 +9,7 @@ import {
   removeFromCart,
   updateQuantity,
 } from "@/redux/addToCartSlice";
+import Link from "next/link";
  
 
 const CartPage = ({ product }) => {
@@ -136,9 +137,11 @@ const CartPage = ({ product }) => {
             <span>Total:</span>
             <span>${totalPrice.toFixed(2)}</span>
           </div>
+         <Link href="/checkout">
           <button className="mt-5 w-full bg-[#DB4444] text-white py-3 rounded-lg font-medium hover:bg-red-600 transition">
             Proceed to Checkout
           </button>
+         </Link>
         </div>
       </div>
     </div>

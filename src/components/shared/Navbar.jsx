@@ -97,57 +97,22 @@ const Navbar = () => {
             </Link>
 
             {/* Cart Icon with count */}
-           <Link href="/add-to-cart">
-  <div className="relative cursor-pointer">
-    <HiOutlineShoppingCart className="text-2xl" />
-    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-      {cartItems.length}
-    </span>
-  </div>
-</Link>
-
+            <Link href="/add-to-cart">
+              <div className="relative cursor-pointer">
+                <HiOutlineShoppingCart className="text-2xl" />
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                  {cartItems.length}
+                </span>
+              </div>
+            </Link>
 
             {/* User Icon */}
-            <div className="relative">
+            <Link href="/login">
               <CiUser
                 className="text-2xl cursor-pointer"
                 onClick={() => setUserMenuOpen(!userMenuOpen)}
               />
-              {userMenuOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-md z-50">
-                  <div className="flex items-center gap-1 px-2 py-2">
-                    <CiUser />
-                    <Link
-                      href="/account"
-                      className="block text-sm text-gray-700"
-                      onClick={() => setUserMenuOpen(false)}
-                    >
-                      Manage My Account
-                    </Link>
-                  </div>
-                  <div className="flex items-center gap-1 px-2 py-2">
-                    <MdOutlineBookmarkBorder />
-                    <Link
-                      href="/orders"
-                      className="block text-sm text-gray-700"
-                      onClick={() => setUserMenuOpen(false)}
-                    >
-                      My Orders
-                    </Link>
-                  </div>
-                  <button
-                    className="w-full text-left flex items-center gap-1 px-2 py-2 text-sm text-gray-700"
-                    onClick={() => {
-                      setUserMenuOpen(false);
-                      alert("Logged out!");
-                    }}
-                  >
-                    <TbLogout2 />
-                    Logout
-                  </button>
-                </div>
-              )}
-            </div>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}

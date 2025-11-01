@@ -7,6 +7,7 @@ import QuantitySelector from "@/components/shared/QuantitySelector";
 import { addToCart } from "@/redux/addToCartSlice";
 import toast from "react-hot-toast";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function ProductDetailsPage() {
   const { id } = useParams();
@@ -95,9 +96,11 @@ export default function ProductDetailsPage() {
 
             {/* Action Buttons */}
             <div className="flex space-x-4 mb-6">
-              <div className="flex-1 bg-[#DB4444] text-white py-3 px-6 rounded-lg font-semibold text-lg text-center cursor-pointer">
+              <Link href="/checkout">
+               <div className="flex-1 bg-[#DB4444] text-white py-3 px-6 rounded-lg font-semibold text-lg text-center cursor-pointer">
                 Buy Now
               </div>
+              </Link>
               <div
                 onClick={handleAddToCart}
                 className="flex-1 cursor-pointer bg-gray-900 text-white py-3 px-6 rounded-lg font-semibold text-lg text-center"
