@@ -14,40 +14,21 @@ import { Autoplay } from "swiper/modules";
 
 const CategoryCard = () => {
   const categories = [
-    {
-      id: 1,
-      name: "Phones",
-      icon: FaMobileAlt,
-    },
-    {
-      id: 2,
-      name: "Computers",
-      icon: FaLaptop,
-    },
-    {
-      id: 3,
-      name: "SmartWatch",
-      icon: FaClock,
-    },
-    {
-      id: 4,
-      name: "Camera",
-      icon: FaCamera,
-    },
-    {
-      id: 5,
-      name: "HeadPhones",
-      icon: FaHeadphones,
-    },
-    {
-      id: 6,
-      name: "Gaming",
-      icon: FaGamepad,
-    },
+    { id: 1, name: "Phones", icon: FaMobileAlt },
+    { id: 2, name: "Computers", icon: FaLaptop },
+    { id: 3, name: "SmartWatch", icon: FaClock },
+    { id: 4, name: "Camera", icon: FaCamera },
+    { id: 5, name: "HeadPhones", icon: FaHeadphones },
+    { id: 6, name: "Gaming", icon: FaGamepad },
+    { id: 7, name: "Gaming", icon: FaGamepad },
+    { id: 8, name: "HeadPhones", icon: FaHeadphones },
+    { id: 9, name: "Computers", icon: FaLaptop },
+    { id: 10, name: "Phones", icon: FaMobileAlt },
+    { id: 11, name: "Camera", icon: FaCamera },
   ];
 
   return (
-    <div className="py-12">
+    <div className="py-12 w-full">
       <Swiper
         spaceBetween={20}
         slidesPerView={6}
@@ -61,13 +42,13 @@ const CategoryCard = () => {
           640: { slidesPerView: 2 },
           0: { slidesPerView: 1 },
         }}
+        className="w-full"
       >
         {categories.map((category) => {
           const IconComponent = category.icon;
-
           return (
             <SwiperSlide key={category.id}>
-              <div className="group border border-gray-300 p-6 flex flex-col items-center justify-center transition-all duration-300 ease-in-out cursor-pointer hover:bg-[#db4444]">
+              <div className="group border border-gray-300 p-6 flex flex-col items-center justify-center transition-all duration-300 ease-in-out cursor-pointer hover:bg-[#db4444] rounded-lg">
                 <div className="flex flex-col items-center text-center">
                   <div className="mb-4 p-4 transition-all duration-300">
                     <IconComponent className="text-3xl text-gray-700 group-hover:text-white transition-colors duration-300" />

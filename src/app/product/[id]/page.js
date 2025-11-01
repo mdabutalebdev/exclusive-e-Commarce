@@ -2,18 +2,13 @@
 
 import { useParams } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  FaStar,
-  FaStarHalfAlt,
-  FaRegStar,
-  FaTruck,
-  FaUndo,
-} from "react-icons/fa";
+import { FaStar, FaStarHalfAlt, FaRegStar, FaTruck, FaUndo } from "react-icons/fa";
 import QuantitySelector from "@/components/shared/QuantitySelector";
 import { addToCart } from "@/redux/addToCartSlice";
 import toast from "react-hot-toast";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ProductDetailsPage() {
   const { id } = useParams();
@@ -25,17 +20,16 @@ export default function ProductDetailsPage() {
   const product = products.find((p) => p.id === Number(id));
   const cartItem = cartItems.find((item) => item.id === product?.id);
 
+  // ===== All hooks must be declared at top =====
   const [quantity, setQuantity] = useState(cartItem ? cartItem.quantity : 1);
+  const [mainImage, setMainImage] = useState(product?.image || "");
 
   useEffect(() => {
     if (cartItem) setQuantity(cartItem.quantity);
   }, [cartItem]);
 
-  // Early return if product not found
+  // ===== Early return after hooks =====
   if (!product) return <p className="text-center mt-10">Product not found!</p>;
-
-  // Active main image state
-  const [mainImage, setMainImage] = useState(product.image);
 
   // Thumbnails - for demo same image repeated
   const thumbnails = [product.image, product.image, product.image, product.image];
@@ -55,29 +49,33 @@ export default function ProductDetailsPage() {
   return (
     <div className="max-w-6xl mx-auto p-6">
       <div className="bg-white rounded-lg shadow-sm overflow-hidden mb-8">
-        <div className="flex justify-between">
+        <div className="flex flex-col md:flex-row justify-between">
           {/* Product Image */}
-          <div className="w-[50%]">
+          <div className="w-full md:w-[50%]">
             <div className="flex items-center justify-center">
-              <img
+              <Image
                 src={mainImage}
                 alt={product.name}
                 className="w-full md:w-[60%] h-96 object-cover p-4 pt-20"
+                height={384}
+                width={256}
               />
             </div>
 
             {/* Thumbnail Images */}
-            <div className="flex items-center justify-around gap-3 ml-5 pt-26">
+            <div className="flex items-center justify-around gap-3 ml-5 pt-6">
               {thumbnails.map((img, index) => (
                 <div
                   key={index}
                   onClick={() => setMainImage(img)}
-                  className={`border p-1 cursor-pointer  rounded ${
+                  className={`border p-1 cursor-pointer rounded ${
                     mainImage === img ? "border-[#DB4444]" : "border-gray-300"
                   }`}
                 >
-                  <img
+                  <Image
                     src={img}
+                    height={100}
+                    width={100}
                     alt={`${product.name}-${index}`}
                     className="h-30 w-30 object-cover"
                   />
@@ -87,7 +85,7 @@ export default function ProductDetailsPage() {
           </div>
 
           {/* Product Details */}
-          <div className="p-8 w-[50%]">
+          <div className="p-8 w-full md:w-[50%]">
             <h1 className="text-2xl font-bold text-gray-900 mb-2">{product.name}</h1>
 
             {/* Rating */}
