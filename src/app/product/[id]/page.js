@@ -2,7 +2,13 @@
 
 import { useParams } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
-import { FaStar, FaStarHalfAlt, FaRegStar, FaTruck, FaUndo } from "react-icons/fa";
+import {
+  FaStar,
+  FaStarHalfAlt,
+  FaRegStar,
+  FaTruck,
+  FaUndo,
+} from "react-icons/fa";
 import QuantitySelector from "@/components/shared/QuantitySelector";
 import { addToCart } from "@/redux/addToCartSlice";
 import toast from "react-hot-toast";
@@ -13,15 +19,12 @@ export default function ProductDetailsPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  // Products & Cart Items
   const products = useSelector((state) => state.products.items || []);
   const cartItems = useSelector((state) => state.addToCart.items);
 
-  // Find product and cart item
   const product = products.find((p) => p.id === Number(id));
   const cartItem = cartItems.find((item) => item.id === product?.id);
 
-  // ✅ Hooks must be called unconditionally
   const [quantity, setQuantity] = useState(cartItem ? cartItem.quantity : 1);
 
   useEffect(() => {
@@ -31,35 +34,60 @@ export default function ProductDetailsPage() {
   // Early return if product not found
   if (!product) return <p className="text-center mt-10">Product not found!</p>;
 
+  // Active main image state
+  const [mainImage, setMainImage] = useState(product.image);
+
+  // Thumbnails - for demo same image repeated
+  const thumbnails = [product.image, product.image, product.image, product.image];
+
   // Rating calculation
   const fullStars = Math.floor(product.rating || 0);
   const hasHalfStar = (product.rating || 0) % 1 >= 0.5;
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
-  // Handle Add to Cart
   const handleAddToCart = () => {
-    dispatch(addToCart({ ...product, quantity })); // dispatch product + current quantity
+    dispatch(addToCart({ ...product, quantity }));
     toast.success("Added to Cart!");
   };
 
-  // Handle Quantity Change
-  const handleQuantityChange = (qty) => {
-    setQuantity(qty); // update local quantity
-  };
+  const handleQuantityChange = (qty) => setQuantity(qty);
 
   return (
     <div className="max-w-6xl mx-auto p-6">
       <div className="bg-white rounded-lg shadow-sm overflow-hidden mb-8">
-        <div className="flex flex-col md:flex-row">
+        <div className="flex justify-between">
           {/* Product Image */}
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-full md:w-1/2 h-90 object-contain p-4 pt-20"
-          />
+          <div className="w-[50%]">
+            <div className="flex items-center justify-center">
+              <img
+                src={mainImage}
+                alt={product.name}
+                className="w-full md:w-[60%] h-96 object-cover p-4 pt-20"
+              />
+            </div>
+
+            {/* Thumbnail Images */}
+            <div className="flex items-center justify-around gap-3 ml-5 pt-26">
+              {thumbnails.map((img, index) => (
+                <div
+                  key={index}
+                  onClick={() => setMainImage(img)}
+                  className={`border p-1 cursor-pointer  rounded ${
+                    mainImage === img ? "border-[#DB4444]" : "border-gray-300"
+                  }`}
+                >
+                  <img
+                    src={img}
+                    alt={`${product.name}-${index}`}
+                    className="h-30 w-30 object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
 
           {/* Product Details */}
-          <div className="flex-1 p-8">
+          <div className="p-8 w-[50%]">
             <h1 className="text-2xl font-bold text-gray-900 mb-2">{product.name}</h1>
 
             {/* Rating */}
@@ -98,13 +126,13 @@ export default function ProductDetailsPage() {
             {/* Action Buttons */}
             <div className="flex space-x-4 mb-6">
               <Link href="/checkout">
-                <div className="  bg-[#DB4444] text-white py-2 px-6 rounded-lg font-semibold text-lg text-center cursor-pointer">
+                <div className="bg-[#DB4444] text-white py-2 px-6 rounded-lg font-semibold text-lg text-center cursor-pointer">
                   Buy Now
                 </div>
               </Link>
               <div
                 onClick={handleAddToCart}
-                className="  cursor-pointer bg-gray-900 text-white py-2 px-6 rounded-lg font-semibold text-lg text-center"
+                className="cursor-pointer bg-gray-900 text-white py-2 px-6 rounded-lg font-semibold text-lg text-center"
               >
                 Add to Cart
               </div>
