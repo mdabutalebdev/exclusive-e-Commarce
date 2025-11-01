@@ -17,18 +17,19 @@ export default function ProductDetailsPage() {
   const products = useSelector((state) => state.products.items || []);
   const cartItems = useSelector((state) => state.addToCart.items);
 
+  // Find product and cart item
   const product = products.find((p) => p.id === Number(id));
+  const cartItem = cartItems.find((item) => item.id === product?.id);
 
-  if (!product) return <p className="text-center mt-10">Product not found!</p>;
-
-  // Local state for quantity
-  const cartItem = cartItems.find((item) => item.id === product.id);
+  // ✅ Hooks must be called unconditionally
   const [quantity, setQuantity] = useState(cartItem ? cartItem.quantity : 1);
 
-  // Keep local quantity in sync if cart updates
   useEffect(() => {
     if (cartItem) setQuantity(cartItem.quantity);
   }, [cartItem]);
+
+  // Early return if product not found
+  if (!product) return <p className="text-center mt-10">Product not found!</p>;
 
   // Rating calculation
   const fullStars = Math.floor(product.rating || 0);
@@ -43,7 +44,7 @@ export default function ProductDetailsPage() {
 
   // Handle Quantity Change
   const handleQuantityChange = (qty) => {
-    setQuantity(qty); // only local update here
+    setQuantity(qty); // update local quantity
   };
 
   return (
@@ -97,13 +98,13 @@ export default function ProductDetailsPage() {
             {/* Action Buttons */}
             <div className="flex space-x-4 mb-6">
               <Link href="/checkout">
-               <div className="flex-1 bg-[#DB4444] text-white py-3 px-6 rounded-lg font-semibold text-lg text-center cursor-pointer">
-                Buy Now
-              </div>
+                <div className="  bg-[#DB4444] text-white py-2 px-6 rounded-lg font-semibold text-lg text-center cursor-pointer">
+                  Buy Now
+                </div>
               </Link>
               <div
                 onClick={handleAddToCart}
-                className="flex-1 cursor-pointer bg-gray-900 text-white py-3 px-6 rounded-lg font-semibold text-lg text-center"
+                className="  cursor-pointer bg-gray-900 text-white py-2 px-6 rounded-lg font-semibold text-lg text-center"
               >
                 Add to Cart
               </div>
