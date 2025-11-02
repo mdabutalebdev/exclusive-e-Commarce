@@ -1,18 +1,12 @@
 "use client";
 import { useSelector, useDispatch } from "react-redux";
-
 import { MdDelete } from "react-icons/md";
 import toast from "react-hot-toast";
 import QuantitySelector from "@/components/shared/QuantitySelector";
-import {
-  clearCart,
-  removeFromCart,
-  updateQuantity,
-} from "@/redux/addToCartSlice";
+import { clearCart, removeFromCart, updateQuantity } from "@/redux/addToCartSlice";
 import Link from "next/link";
- 
 
-const CartPage = ({ product }) => {
+const CartPage = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.addToCart.items);
 
@@ -50,9 +44,9 @@ const CartPage = ({ product }) => {
   }
 
   return (
-    <div className="container mx-auto px-6 lg:px-20 py-8">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-20 py-8">
       {/* Header */}
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4 sm:gap-0">
         <h1 className="text-2xl font-semibold text-[#DB4444]">Your Cart</h1>
         <button
           onClick={handleClear}
@@ -67,18 +61,19 @@ const CartPage = ({ product }) => {
         <table className="min-w-full bg-white">
           <thead className="bg-gray-100 text-gray-700 uppercase text-sm font-semibold">
             <tr>
-              <th className="py-3 px-6 text-left">Product</th>
-              <th className="py-3 px-6 text-center">Price</th>
-              <th className="py-3 px-6 text-center">Quantity</th>
-              <th className="py-3 px-6 text-center">Total</th>
-              <th className="py-3 px-6 text-center">Action</th>
+              <th className="py-3 px-4 sm:px-6 text-left">Product</th>
+              <th className="py-3 px-4 sm:px-6 text-center">Price</th>
+              <th className="py-3 px-4 sm:px-6 text-center">Quantity</th>
+              <th className="py-3 px-4 sm:px-6 text-center">Total</th>
+              <th className="py-3 px-4 sm:px-6 text-center">Action</th>
             </tr>
           </thead>
 
           <tbody>
             {cartItems.map((item) => (
-              <tr key={item.id} className=" transition duration-150">
-                <td className="py-4 px-6 flex items-center gap-4">
+              <tr key={item.id} className="transition duration-150">
+                {/* Product + Image */}
+                <td className="py-4 px-4 sm:px-6 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
                   <img
                     src={item.image}
                     alt={item.name}
@@ -86,25 +81,29 @@ const CartPage = ({ product }) => {
                   />
                   <span className="font-medium text-gray-800">{item.name}</span>
                 </td>
-                <td className="py-4 px-6 text-center text-gray-700">
-                  ${item.discountPrice}
+
+                {/* Price */}
+                <td className="py-4 px-4 sm:px-6 text-center text-gray-700">
+                  <span className="block sm:inline">${item.discountPrice}</span>
                 </td>
-                <td className="text-center translate-x-12 text-gray-700">
+
+                {/* Quantity */}
+                <td className="py-4 px-4 sm:px-6 text-center text-gray-700">
                   <QuantitySelector
                     initialQty={item.quantity || 1}
                     onChange={(qty) => {
-                      // Redux update
                       dispatch(updateQuantity({ id: item.id, quantity: qty }));
                     }}
                   />
-
-                 
                 </td>
 
-                <td className="py-4 px-6 text-center font-semibold text-gray-800">
+                {/* Total */}
+                <td className="py-4 px-4 sm:px-6 text-center font-semibold text-gray-800">
                   ${(item.discountPrice * item.quantity).toFixed(2)}
                 </td>
-                <td className="py-4 px-6 text-center">
+
+                {/* Action */}
+                <td className="py-4 px-4 sm:px-6 text-center">
                   <button
                     onClick={() => handleRemove(item.id)}
                     className="bg-red-500 text-white px-3 py-1.5 rounded hover:bg-red-600 transition"
@@ -119,11 +118,9 @@ const CartPage = ({ product }) => {
       </div>
 
       {/* Total Price Section */}
-      <div className="mt-8 flex justify-end">
+      <div className="mt-8 flex flex-col sm:flex-row justify-end gap-6">
         <div className="bg-gray-50 p-6 rounded-lg shadow-md w-full sm:w-1/2 lg:w-1/3">
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">
-            Order Summary
-          </h2>
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">Order Summary</h2>
           <div className="flex justify-between text-gray-700 mb-2">
             <span>Subtotal:</span>
             <span>${totalPrice.toFixed(2)}</span>
@@ -137,11 +134,11 @@ const CartPage = ({ product }) => {
             <span>Total:</span>
             <span>${totalPrice.toFixed(2)}</span>
           </div>
-         <Link href="/checkout">
-          <button className="mt-5 w-full bg-[#DB4444] text-white py-3 rounded-lg font-medium hover:bg-red-600 transition">
-            Proceed to Checkout
-          </button>
-         </Link>
+          <Link href="/checkout">
+            <button className="mt-5 w-full bg-[#DB4444] text-white py-3 rounded-lg font-medium hover:bg-red-600 transition">
+              Proceed to Checkout
+            </button>
+          </Link>
         </div>
       </div>
     </div>

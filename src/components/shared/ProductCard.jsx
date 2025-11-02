@@ -1,5 +1,5 @@
-"use client";
-import React from "react";
+'use client';
+import React, { useState } from "react";
 import Image from "next/image";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { IoMdHeart } from "react-icons/io";
@@ -17,6 +17,8 @@ const ProductCard = ({ product }) => {
   const fullStars = Math.floor(product.rating);
   const hasHalfStar = product.rating % 1 >= 0.5;
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+  const [showHover, setShowHover] = useState(false); // For mobile touch
 
   const handleFavorite = () => {
     if (isFavorite) {
@@ -38,16 +40,25 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="group bg-white w-[180px] sm:w-[240px] h-[370px] sm:h-[370px] border border-gray-200 relative mx-auto overflow-hidden">
+    <div
+      className="group bg-white w-[180px] sm:w-[240px] h-[370px] sm:h-[370px] border border-gray-200 relative mx-auto overflow-hidden"
+      onMouseEnter={() => setShowHover(true)}
+      onMouseLeave={() => setShowHover(false)}
+      onTouchStart={() => setShowHover(!showHover)} // Toggle on mobile touch
+    >
       <div className="relative">
         <span className="text-white bg-red-500 text-xs font-semibold px-2 py-1 rounded absolute top-4 left-2 z-20">
           -{product.discountPercent}%
         </span>
 
-        {/* Hover icons */}
-        <div className="flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 absolute top-4 right-4 z-20">
+        {/* Favorite Icon */}
+        <div
+          className={`flex flex-col gap-2 absolute top-4 right-4 z-20 transition-opacity duration-300 ${
+            showHover ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+          }`}
+        >
           <button
-            className="bg-white p-2 border shadow rounded"
+            className="bg-white p-2 border border-gray-200 shadow rounded"
             onClick={handleFavorite}
           >
             <IoMdHeart
@@ -69,7 +80,9 @@ const ProductCard = ({ product }) => {
 
           {/* Add to Cart button */}
           <div
-            className="absolute bottom-[-50px] left-0 w-full bg-black text-white rounded-b text-center text-sm font-medium py-2 transition-all duration-500 group-hover:bottom-0 cursor-pointer"
+            className={`absolute bottom-[-50px] left-0 w-full bg-black text-white rounded-b text-center text-sm font-medium py-2 transition-all duration-500 cursor-pointer ${
+              showHover ? "bottom-0" : "group-hover:bottom-0"
+            }`}
             onClick={handelAddToCart}
           >
             Add to Cart

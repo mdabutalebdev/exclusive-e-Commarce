@@ -14,6 +14,7 @@ const WeProvaideCustomar = () => {
                 alt="Delivery"
                 width={100}
                 height={100}
+                className="h-18 w-18 object-cover"
               />
             </div>
             <h2 className="text-2xl font-medium mt-4 mb-2">
@@ -32,6 +33,7 @@ const WeProvaideCustomar = () => {
                 alt="Support"
                 width={100}
                 height={100}
+                className="h-18 w-18 object-cover"
               />
             </div>
             <h2 className="text-2xl font-medium mt-4 mb-2">
@@ -50,6 +52,7 @@ const WeProvaideCustomar = () => {
                 alt="Money Bag"
                 width={100}
                 height={100}
+                className="h-18 w-18 object-cover"
               />
             </div>
             <h2 className="text-2xl font-medium mt-4 mb-2">
