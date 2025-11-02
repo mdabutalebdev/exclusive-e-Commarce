@@ -37,7 +37,7 @@ const Navbar = () => {
       {/* Top Bar */}
       <div className="bg-black text-white text-sm py-2">
         <div className="container mx-auto px-4 md:px-24 flex justify-between">
-          <p>Free shipping on orders over $50</p>
+          <p className="text-gray-100 max-sm:pl-13">Free shipping on orders over $50</p>
           <div className="hidden md:flex gap-6">
             <Link href="/track-order">Track Order</Link>
             <Link href="/about-us">About Us</Link>
