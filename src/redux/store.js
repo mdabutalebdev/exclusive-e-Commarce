@@ -17,6 +17,10 @@ import addToCartReducer from "./addToCartSlice";
 import addToCompareReducer from "./compareSlice"
 import addToFavoriteReducer from "./favoriteSlice"
 import activeCardReducer from "./activeCardSlice";
+import searchReducer from "./searchSlice";
+
+
+
 // persist configs
 const cartPersistConfig = { key: "cart", storage, whitelist: ["items"] };
 const comparePersistConfig = { key: "compare", storage, whitelist: ["items"] };
@@ -30,6 +34,7 @@ export const store = configureStore({
     addToCompare: persistReducer(comparePersistConfig, addToCompareReducer),
     addToFavorite: persistReducer(favoritePersistConfig, addToFavoriteReducer),
     activeCard: activeCardReducer,
+    search:searchReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
