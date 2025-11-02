@@ -1,17 +1,13 @@
 'use client';
-import React, { useRef } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 import { FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 import 'swiper/css';
-import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const SimpleTeamSlider = () => {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
-
   const teamMembers = [
     {
       id: 1,
@@ -33,50 +29,56 @@ const SimpleTeamSlider = () => {
       position: "Product Designer",
       company: "in",
       image: "/images/team_two.png"
+    },
+    {
+      id: 4,
+      name: "Md Abu Taleb Khan",
+      position: "Founder & CEO",
+      company: "in",
+      image: "/images/ceo.jpg"
+    },
+    {
+      id: 5,
+      name: "Emma Watson",
+      position: "Managing Director",
+      company: "in",
+      image: "/images/team_one.png"
+    },
+    {
+      id: 6,
+      name: "Will Smith",
+      position: "Product Designer",
+      company: "in",
+      image: "/images/team_two.png"
     }
   ];
 
   return (
-    <div className="bg-gray-50 py-16 px-4">
-      <div className="container mx-auto px-24">
-
-        {/* Custom Navigation Buttons */}
-        <div className="flex justify-end mb-6 gap-3">
-          <button ref={prevRef} className="bg-gray-300 p-2 rounded hover:bg-[#DB4444] transition text-white">Prev</button>
-          <button ref={nextRef} className="bg-gray-300 p-2 rounded hover:bg-[#DB4444] transition text-white">Next</button>
-        </div>
-
+    <div className="bg-gray-50 lg:py-16 lg:px-4">
+      <div className="container mx-auto lg:px-24">
         <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
+          modules={[Pagination, Autoplay]}
           spaceBetween={30}
-          slidesPerView={3}
+          slidesPerView={1} // default for mobile
           loop={true}
           pagination={{ clickable: true }}
           autoplay={{ delay: 3000 }}
-          navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current
-          }}
-          onBeforeInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-          }}
           breakpoints={{
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
+            640: { slidesPerView: 1 },   // Mobile: 1 per view
+            768: { slidesPerView: 2 },   // Tablet: 2 per view
+            1024: { slidesPerView: 3 },  // Desktop: 3 per view
           }}
           className="pb-12"
         >
           {teamMembers.map((member) => (
             <SwiperSlide key={member.id}>
-              <div className="bg-white w-[320px] h-[465px] shadow-md text-center   transition-all duration-300">
-                <div className="relative w-full h-72 rounded-t-xl mx-auto mb-6 overflow-hidden">
+              <div className="my-10 bg-white w-[320px] h-[465px] shadow-md text-center transition-all duration-300 rounded-xl mx-auto">
+                <div className="relative w-full h-72 rounded-t-xl overflow-hidden mb-6">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-contain pt-5 "
+                    className="object-contain pt-5"
                   />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
