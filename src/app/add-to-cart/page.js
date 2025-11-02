@@ -28,11 +28,7 @@ const CartPage = () => {
   if (cartItems.length === 0) {
     return (
       <div className="flex flex-col justify-center items-center h-[80vh] text-center px-4">
-        <img
-          src="/empty-cart.png"
-          alt="Empty cart"
-          className="w-48 h-48 mb-4 opacity-80"
-        />
+         <p className="text-4xl font-medium text-[#DB4444]">0</p>
         <h2 className="text-2xl font-semibold text-gray-700 mb-2">
           Your cart is empty 🛒
         </h2>
