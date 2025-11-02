@@ -179,6 +179,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
+                onClick={() => setMobileMenuOpen(false)}  
                 className={`font-latin py-2 px-3 rounded ${
                   pathname === link.href
                     ? "text-[#DB4444]"
