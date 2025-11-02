@@ -1,17 +1,12 @@
- 
-
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import ProvaiderComponent from "@/redux/provaider";
 
- 
-
-
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"], 
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -29,9 +24,6 @@ export default function RootLayout({ children }) {
           <Navbar />
           {children}
           <Footer />
-
-          {/* Toaster for notifications */}
-          
         </ProvaiderComponent>
       </body>
     </html>

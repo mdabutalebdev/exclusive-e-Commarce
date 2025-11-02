@@ -4,8 +4,6 @@ import { CiHeart, CiSearch, CiUser } from "react-icons/ci";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
-import { MdOutlineBookmarkBorder } from "react-icons/md";
-import { TbLogout2 } from "react-icons/tb";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
@@ -14,7 +12,6 @@ const Navbar = () => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const userMenuRef = useRef(null);
 
-  // Redux state
   const cartItems = useSelector((state) => state.addToCart.items || []);
   const favoriteItems = useSelector((state) => state.addToFavorite.items || []);
 
@@ -86,7 +83,6 @@ const Navbar = () => {
               <CiSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-lg cursor-pointer text-gray-500" />
             </div>
 
-            {/* Favorite Icon with count */}
             <Link href="/favorite">
               <div className="relative cursor-pointer">
                 <CiHeart className="text-2xl" />
@@ -96,7 +92,6 @@ const Navbar = () => {
               </div>
             </Link>
 
-            {/* Cart Icon with count */}
             <Link href="/add-to-cart">
               <div className="relative cursor-pointer">
                 <HiOutlineShoppingCart className="text-2xl" />
@@ -106,7 +101,6 @@ const Navbar = () => {
               </div>
             </Link>
 
-            {/* User Icon */}
             <Link href="/login">
               <CiUser
                 className="text-2xl cursor-pointer"
@@ -139,6 +133,63 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
+
+        {/* Mobile Search + Icons */}
+        <div className="md:hidden px-4 pb-3 flex items-center gap-3">
+          {/* Search Box */}
+          <div className="flex-1 relative">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="w-full px-3 py-2 border border-gray-300 bg-gray-50 rounded-md font-poppins focus:outline-none focus:border-gray-300"
+            />
+            <CiSearch className="absolute right-2 top-1/2 -translate-y-1/2 text-lg cursor-pointer text-gray-500" />
+          </div>
+
+          {/* Icons next to search box */}
+          <div className="flex gap-3 items-center">
+            <Link href="/favorite">
+              <div className="relative cursor-pointer">
+                <CiHeart className="text-2xl" />
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                  {favoriteItems.length}
+                </span>
+              </div>
+            </Link>
+
+            <Link href="/add-to-cart">
+              <div className="relative cursor-pointer">
+                <HiOutlineShoppingCart className="text-2xl" />
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                  {cartItems.length}
+                </span>
+              </div>
+            </Link>
+
+            <Link href="/login">
+              <CiUser className="text-2xl cursor-pointer" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Mobile Navigation Links */}
+        {mobileMenuOpen && (
+          <nav className="md:hidden px-4 pb-3 flex flex-col gap-2">
+            {links.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={`font-latin py-2 px-3 rounded ${
+                  pathname === link.href
+                    ? "text-[#DB4444]"
+                    : "text-black hover:text-[#DB4444]"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+        )}
       </div>
     </header>
   );

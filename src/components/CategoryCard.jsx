@@ -1,3 +1,4 @@
+ 
 "use client";
 import React from "react";
 import {
@@ -36,11 +37,11 @@ const CategoryCard = () => {
         autoplay={{ delay: 2000, disableOnInteraction: false }}
         modules={[Autoplay]}
         breakpoints={{
-          1280: { slidesPerView: 6 },
-          1024: { slidesPerView: 5 },
-          768: { slidesPerView: 3 },
+          0: { slidesPerView: 2 },
           640: { slidesPerView: 2 },
-          0: { slidesPerView: 1 },
+          768: { slidesPerView: 3 },
+          1024: { slidesPerView: 4 },
+          1280: { slidesPerView: 6 },
         }}
         className="w-full"
       >

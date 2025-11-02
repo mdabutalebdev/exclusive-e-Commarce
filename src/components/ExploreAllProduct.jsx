@@ -1,6 +1,5 @@
 "use client";
 import Heading from "./shared/Heading";
-import CountdownTimer from "./shared/CountdownTimer";
 import { useSelector } from "react-redux";
 import ProductCard from "./shared/ProductCard";
 import Button from "./shared/Button";
@@ -9,30 +8,31 @@ import Link from "next/link";
 const BestSeling = () => {
   const products = useSelector((state) => state.products);
 
-if (products.loading) {
-  return <div className="flex justify-center">Loading...</div>;
-}
+  if (products.loading) {
+    return <div className="flex justify-center py-10">Loading...</div>;
+  }
+
   return (
-    <div className="py-10 bg-gray-50 ">
-      <div className="container mx-auto px-24">
+    <div className="py-10 bg-gray-50">
+      <div className="container mx-auto px-4 md:px-24">
         {/* Heading */}
         <Heading title={"Our Products"} SectionHead={"Explore Our Products"} />
 
         {/* Product Grid */}
-        <div className="pt-10 pb-10 grid grid-cols-5 gap-6">
+        <div className="pt-10 pb-10 grid gap-3 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {products.items && products.items.length > 0 ? (
             products.items.slice(0, 10).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))
           ) : (
-            <div className="flex justify-center items-center col-span-5">
+            <div className="flex justify-center items-center col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 xl:col-span-5">
               No Products Available
             </div>
           )}
         </div>
 
         {/* View All Button */}
-        <Link href="/product" className="">
+        <Link href="/product">
           <div className="flex justify-center">
             <Button className="cursor-pointer !py-3">View All Products</Button>
           </div>
