@@ -26,4 +26,4 @@ const categorySlice = createSlice({
   },
 });
 
-export default categorySlice.reducer; // ✅ default export
+export default categorySlice.reducer;  

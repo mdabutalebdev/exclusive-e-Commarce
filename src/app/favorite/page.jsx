@@ -47,7 +47,7 @@ const FavoritePage = () => {
     <div className="container mx-auto px-6 lg:px-20 py-8">
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-semibold text-[#DB4444]">Your Favorites</h1>
+        <h1 className="md:text-2xl text-base font-semibold text-[#DB4444]">Your Favorites</h1>
         <button
           onClick={handleClear}
           className="flex items-center gap-2 bg-[#DB4444] text-white px-5 py-2 rounded-lg hover:bg-red-600 transition"
